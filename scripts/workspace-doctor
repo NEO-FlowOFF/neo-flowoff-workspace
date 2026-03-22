@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST_PATH = ROOT / "manifests" / "repos.json"
+
+
+def run_git(repo_path: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", "-C", str(repo_path), *args],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def load_repositories() -> list[dict[str, str]]:
+    with MANIFEST_PATH.open("r", encoding="utf-8") as handle:
+        payload = json.load(handle)
+    return payload.get("repositories", [])
+
+
+def repo_status(repo_path: Path) -> tuple[bool, str, str, str]:
+    git_check = run_git(repo_path, "rev-parse", "--is-inside-work-tree")
+    if git_check.returncode != 0:
+        return False, "-", "-", "missing-git"
+
+    branch = run_git(repo_path, "rev-parse", "--abbrev-ref", "HEAD")
+    branch_name = branch.stdout.strip() or "detached"
+
+    origin = run_git(repo_path, "remote", "get-url", "origin")
+    origin_url = origin.stdout.strip() or "(no origin)"
+
+    porcelain = run_git(repo_path, "status", "--porcelain")
+    state = "clean" if not porcelain.stdout.strip() else "dirty"
+
+    return True, branch_name, origin_url, state
+
+
+def main() -> int:
+    repositories = load_repositories()
+    print("NEO-FlowOFF workspace doctor")
+    print(f"root: {ROOT}")
+    print("")
+
+    name_width = max(len(repo["name"]) for repo in repositories)
+    status_width = len("repo-status")
+    branch_width = len("branch")
+    state_width = len("state")
+
+    header = (
+        f"{'repo'.ljust(name_width)}  "
+        f"{'repo-status'.ljust(status_width)}  "
+        f"{'branch'.ljust(branch_width)}  "
+        f"{'state'.ljust(state_width)}  "
+        "origin"
+    )
+    print(header)
+    print("-" * len(header))
+
+    failures = 0
+
+    for repo in repositories:
+        repo_path = (ROOT / repo["localPath"]).resolve()
+
+        if not repo_path.exists():
+            failures += 1
+            print(
+                f"{repo['name'].ljust(name_width)}  "
+                f"{'missing-path'.ljust(status_width)}  "
+                f"{'-'.ljust(branch_width)}  "
+                f"{'-'.ljust(state_width)}  "
+                f"{repo_path}"
+            )
+            continue
+
+        is_git, branch, origin, state = repo_status(repo_path)
+        repo_status_text = "git-ok" if is_git else "invalid-git"
+
+        if not is_git:
+            failures += 1
+
+        print(
+            f"{repo['name'].ljust(name_width)}  "
+            f"{repo_status_text.ljust(status_width)}  "
+            f"{branch.ljust(branch_width)}  "
+            f"{state.ljust(state_width)}  "
+            f"{origin}"
+        )
+
+    print("")
+
+    if failures:
+        print(f"workspace-doctor: {failures} failure(s) found")
+        return 1
+
+    print("workspace-doctor: ok")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

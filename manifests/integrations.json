@@ -1,0 +1,30 @@
+{
+  "organization": "NEO-FlowOFF",
+  "workspaceRoot": "/Users/nettomello/neomello/NEO-FlowOFF",
+  "integrations": [
+    {
+      "id": "token-canonical-path-to-pwa",
+      "producer": "neoflw-token",
+      "consumer": "neo-flowoff-pwa",
+      "contract": "enderecos canonicos e metadados on-chain consumidos pela PWA",
+      "status": "mapped-from-roadmap",
+      "evidence": "./roadmaps/neo-flowoff-unified-roadmap-2026.md"
+    },
+    {
+      "id": "token-utility-to-miniapp",
+      "producer": "neoflw-token",
+      "consumer": "ceo-escalavel-miniapp",
+      "contract": "identidade do token e utilidade para wallet, referral e rewards",
+      "status": "mapped-from-roadmap",
+      "evidence": "./roadmaps/neo-flowoff-unified-roadmap-2026.md"
+    },
+    {
+      "id": "content-launch-assets-to-landing",
+      "producer": "neoflow-content-machine",
+      "consumer": "neo-flw-landing",
+      "contract": "ativos e sequencias de lancamento para paginas de conversao",
+      "status": "mapped-from-roadmap",
+      "evidence": "./roadmaps/neo-flowoff-unified-roadmap-2026.md"
+    }
+  ]
+}

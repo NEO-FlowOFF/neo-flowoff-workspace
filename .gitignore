@@ -1,0 +1,19 @@
+.DS_Store
+
+# Workspace control plane artifacts
+.claude/
+.playwright-mcp/
+
+# Sovereign product repositories
+ceo-escalavel-miniapp/
+flow-links-bio/
+neo-flowoff-pwa/
+neo-flw-landing/
+neo-landing-open/
+neoflow-content-machine/
+neoflw-token/
+neoflw-token-page*/
+pro-ia/
+
+# Local scratch area not mapped as a tracked repo
+neoflowoff/

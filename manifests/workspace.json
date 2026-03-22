@@ -1,0 +1,23 @@
+{
+  "workspaceName": "neo-flowoff-workspace",
+  "organization": "NEO-FlowOFF",
+  "localRootPath": "/Users/nettomello/neomello/NEO-FlowOFF",
+  "operationalMode": "control-plane",
+  "tracks": [
+    "manifests de repositorios soberanos",
+    "manifests de integracoes cross-repo",
+    "documentacao transversal",
+    "padroes operacionais",
+    "scripts de bootstrap e diagnostico",
+    "roadmaps e artefatos de coordenacao"
+  ],
+  "doesNotTrack": [
+    "source code dos repositorios filhos",
+    "runtime dos servicos filhos",
+    "dependencias de produto dos filhos",
+    "testes dos filhos",
+    "historico de entrega de produto"
+  ],
+  "canonicalMarkdownGuide": "./MARKDOWN_STYLE_GUIDE.md",
+  "diagnosticScript": "./scripts/workspace-doctor"
+}

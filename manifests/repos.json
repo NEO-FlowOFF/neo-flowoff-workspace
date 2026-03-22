@@ -1,0 +1,61 @@
+{
+  "organization": "NEO-FlowOFF",
+  "workspaceRoot": "/Users/nettomello/neomello/NEO-FlowOFF",
+  "repositories": [
+    {
+      "name": "ceo-escalavel-miniapp",
+      "localPath": "./ceo-escalavel-miniapp",
+      "remote": "https://github.com/NEO-FlowOFF/ceo-escalavel-miniapp.git",
+      "role": "miniapp de aquisicao, referral e wallet utility"
+    },
+    {
+      "name": "flow-links-bio",
+      "localPath": "./flow-links-bio",
+      "remote": "https://github.com/NEO-FlowOFF/flow-links-bio.git",
+      "role": "hub de links e presenca publica de distribuicao"
+    },
+    {
+      "name": "neo-flowoff-pwa",
+      "localPath": "./neo-flowoff-pwa",
+      "remote": "https://github.com/NEO-FlowOFF/neo-flowoff-pwa.git",
+      "role": "pwa principal do ecossistema FlowOFF"
+    },
+    {
+      "name": "neo-flw-landing",
+      "localPath": "./neo-flw-landing",
+      "remote": "https://github.com/NEO-FlowOFF/neo-flw-landing.git",
+      "role": "landing e infraestrutura de conversao"
+    },
+    {
+      "name": "neo-landing-open",
+      "localPath": "./neo-landing-open",
+      "remote": "https://github.com/NEO-FlowOFF/neo-landing-open.git",
+      "role": "landing publica aberta do ecossistema"
+    },
+    {
+      "name": "neoflow-content-machine",
+      "localPath": "./neoflow-content-machine",
+      "remote": "https://github.com/NEO-FlowOFF/neoflow-content-machine.git",
+      "role": "fabrica de conteudo e distribuicao automatizada"
+    },
+    {
+      "name": "neoflw-token",
+      "localPath": "./neoflw-token",
+      "remote": "https://github.com/NEO-FlowOFF/neoflw-token.git",
+      "role": "token, contratos e artefatos canonicos on-chain"
+    },
+    {
+      "name": "neoflw-token-page",
+      "localPath": "./neoflw-token-page ",
+      "remote": "https://github.com/NEO-PROTOCOL/neoflw-base-landing.git",
+      "role": "landing soberana do token em repositorio externo",
+      "notes": "O diretorio local possui espaco a direita no nome."
+    },
+    {
+      "name": "pro-ia",
+      "localPath": "./pro-ia",
+      "remote": "https://github.com/NEO-FlowOFF/pro-ia.git",
+      "role": "produto de automacao de funil e conversao"
+    }
+  ]
+}
