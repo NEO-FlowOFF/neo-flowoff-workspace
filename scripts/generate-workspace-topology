@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from urllib.parse import urlparse
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MANIFESTS = ROOT / "manifests"
+
+
+def load_json(path: Path) -> dict:
+    with path.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def summarize_ports(repo: dict) -> str:
+    ports = repo.get("localDevelopment", {}).get("ports", [])
+    if not ports:
+        return "-"
+    values = []
+    for port in ports:
+        value = str(port["value"])
+        if value not in values:
+            values.append(value)
+    return ", ".join(values)
+
+
+def summarize_domains(repo: dict) -> str:
+    domains = repo.get("publicSurface", {}).get("domains", [])
+    if not domains:
+        return "-"
+    first = urlparse(domains[0]).netloc or domains[0]
+    extra = len(domains) - 1
+    if extra <= 0:
+        return first
+    return f"{first} +{extra}"
+
+
+def summarize_platform(repo: dict) -> str:
+    deployment = repo.get("deployment", {})
+    primary = deployment.get("primaryPlatform", "-")
+    legacy = deployment.get("legacyPlatform")
+    if legacy:
+        return f"{primary} / {legacy}"
+    return primary
+
+
+def collect_drifts(repos: list[dict], integrations: list[dict]) -> list[str]:
+    drifts: list[str] = []
+
+    for integration in integrations:
+        status = integration.get("status", "")
+        if status in {"drift-detected", "observed-mock"}:
+            drifts.append(
+                f"{integration['id']} | {status} | "
+                f"{integration['contract']['summary']}"
+            )
+
+    for repo in repos:
+        port_map: dict[int, list[str]] = {}
+        for port in repo.get("localDevelopment", {}).get("ports", []):
+            purpose = port.get("purpose", "")
+            if "playwright" in purpose:
+                continue
+            port_map.setdefault(port["value"], []).append(purpose)
+        if any(len(purposes) > 1 for purposes in port_map.values()):
+            drifts.append(
+                f"{repo['name']} | port-collision | "
+                "Portas locais duplicadas entre superficies do mesmo repo."
+            )
+        if repo.get("deployment", {}).get("legacyPlatform"):
+            drifts.append(
+                f"{repo['name']} | deploy-drift | "
+                "Documentacao ou superficie publica ainda aponta legado."
+            )
+        local_path = repo.get("localPath", "")
+        if local_path.endswith(" "):
+            drifts.append(
+                f"{repo['name']} | path-hygiene | "
+                "Diretorio local possui espaco a direita."
+            )
+
+    return drifts
+
+
+def render_matrix(title: str, lines: list[str]) -> list[str]:
+    block = [f"## {title}", "", "```text"]
+    block.extend(lines)
+    block.append("```")
+    block.append("")
+    block.append("────────────────────────────────────────")
+    block.append("")
+    return block
+
+
+def main() -> int:
+    repos_payload = load_json(MANIFESTS / "repos.json")
+    integrations_payload = load_json(MANIFESTS / "integrations.json")
+    workspace_payload = load_json(MANIFESTS / "workspace.json")
+
+    repos = repos_payload["repositories"]
+    integrations = integrations_payload["integrations"]
+
+    lines: list[str] = [
+        "<!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 "
+        "MD025 MD029 MD032 MD033 MD034 -->",
+        "",
+        "> Documento gerado a partir dos manifests do workspace.",
+        "> Fonte: `manifests/repos.json`, `manifests/integrations.json`",
+        "> e `manifests/workspace.json`.",
+        "",
+        "```text",
+        "========================================",
+        "    NEO-FLOWOFF · WORKSPACE TOPOLOGY",
+        "========================================",
+        "Status: GENERATED",
+        f"Schema: {workspace_payload['schemaVersion']}",
+        "========================================",
+        "```",
+        "",
+        "## ⟠ Objetivo",
+        "",
+        "Mapear a topologia real do workspace",
+        "a partir dos manifests canonicos.",
+        "",
+        "────────────────────────────────────────",
+        "",
+    ]
+
+    summary_lines = [
+        f"workspace  | {workspace_payload['workspaceName']}",
+        f"org        | {workspace_payload['organization']}",
+        f"mode       | {workspace_payload['operationalMode']}",
+        f"repos      | {len(repos)}",
+        f"integracoes| {len(integrations)}",
+        f"guia-md    | {workspace_payload['canonicalMarkdownGuide']}",
+    ]
+    lines.extend(render_matrix("⨷ Resumo", summary_lines))
+
+    repo_lines = [
+        "repo                    | deploy                         | "
+        "local | public",
+        "------------------------|--------------------------------|-------|"
+        "------------------------------",
+    ]
+    for repo in repos:
+        repo_lines.append(
+            f"{repo['name'][:24].ljust(24)}| "
+            f"{summarize_platform(repo)[:30].ljust(30)} | "
+            f"{summarize_ports(repo)[:5].ljust(5)} | "
+            f"{summarize_domains(repo)[:28]}"
+        )
+    lines.extend(render_matrix("⧉ Repos", repo_lines))
+
+    role_lines = []
+    for repo in repos:
+        role_lines.append(f"{repo['name']} | {repo['role']}")
+    lines.extend(render_matrix("◬ Papéis", role_lines))
+
+    webhook_lines = []
+    for repo in repos:
+        endpoints = repo.get("publicSurface", {}).get("webhookEndpoints", [])
+        if endpoints:
+            webhook_lines.append(f"{repo['name']} | {', '.join(endpoints)}")
+    if not webhook_lines:
+        webhook_lines.append("none")
+    lines.extend(render_matrix("⧇ Webhooks", webhook_lines))
+
+    integration_lines = []
+    for integration in integrations:
+        producer = integration["producer"].get("repo") or integration["producer"].get("system")
+        consumer = integration["consumer"].get("repo") or integration["consumer"].get("system")
+        if not consumer:
+            consumer = ",".join(integration["consumer"].get("repos", []))
+        if not consumer:
+            consumer = ",".join(integration["consumer"].get("systems", []))
+        integration_lines.append(
+            f"{integration['id']} | {integration['status']} | "
+            f"{producer} -> {consumer}"
+        )
+    lines.extend(render_matrix("◯ Integrações", integration_lines))
+
+    drift_lines = collect_drifts(repos, integrations)
+    if not drift_lines:
+        drift_lines.append("none")
+    lines.extend(render_matrix("⍟ Drifts", drift_lines))
+
+    lines.extend(
+        [
+            "## ⨀ Geração",
+            "",
+            "```bash",
+            "python3 scripts/generate-workspace-topology \\",
+            "  > docs/workspace/WORKSPACE_TOPOLOGY.md",
+            "```",
+            "",
+        ]
+    )
+
+    print("\n".join(lines))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

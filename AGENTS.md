@@ -12,6 +12,7 @@
 This directory is an organizational multi-repo workspace.
 
 Structural contract:
+
 - the workspace root versions coordination
 - child repositories version product
 - the workspace root is not a product monorepo
@@ -53,6 +54,12 @@ Structural contract:
 - Strategic documentation must translate real execution.
 - Do not invent parallel truth in docs.
 
+## Local Tooling Contract
+
+- On this Mac, local package execution must assume `pnpm`.
+- Use `pnpm` in workspace docs, handoffs and automation references.
+- Do not normalize local guidance back to `npm`.
+
 ## Routing Contract
 
 1. Classify the task as coordination or product.
@@ -68,4 +75,7 @@ Structural contract:
 - [manifests/integrations.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/integrations.json)
 - [manifests/workspace.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/workspace.json)
 - [docs/workspace/WORKSPACE_MODEL.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_MODEL.md)
+- [docs/workspace/WORKSPACE_TOPOLOGY.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_TOPOLOGY.md)
+- [docs/workspace/DRIFT_BACKLOG.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/DRIFT_BACKLOG.md)
 - [scripts/workspace-doctor](/Users/nettomello/neomello/NEO-FlowOFF/scripts/workspace-doctor)
+- [scripts/generate-workspace-topology](/Users/nettomello/neomello/NEO-FlowOFF/scripts/generate-workspace-topology)

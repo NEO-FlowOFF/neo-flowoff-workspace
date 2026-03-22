@@ -36,6 +36,7 @@ Os filhos entregam produto.
 ## ⧉ Fronteiras
 
 **Workspace root:**
+
 - manifests de repositórios
 - manifests de integrações
 - padrões operacionais
@@ -46,6 +47,7 @@ Os filhos entregam produto.
   quando fizer sentido
 
 **Repos filhos:**
+
 - source code
 - runtime
 - testes
@@ -81,9 +83,12 @@ NEO-FlowOFF/
 │   └── workspace.json
 ├── docs/
 │   └── workspace/
-│       └── WORKSPACE_MODEL.md
+│       ├── DRIFT_BACKLOG.md
+│       ├── WORKSPACE_MODEL.md
+│       └── WORKSPACE_TOPOLOGY.md
 ├── roadmaps/
 └── scripts/
+    ├── generate-workspace-topology
     └── workspace-doctor
 ```
 
@@ -104,12 +109,14 @@ NEO-FlowOFF/
 ## ◯ Manifestos
 
 **`manifests/repos.json`**
+
 - nome do repo
 - path local
 - remoto
 - papel no ecossistema
 
 **`manifests/integrations.json`**
+
 - integração cross-repo
 - produtor
 - consumidor
@@ -117,6 +124,7 @@ NEO-FlowOFF/
 - evidência
 
 **`manifests/workspace.json`**
+
 - nome do workspace
 - organização
 - modo operacional

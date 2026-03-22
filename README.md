@@ -49,11 +49,14 @@ NEO-FlowOFF/
 │   └── workspace.json
 ├── docs/
 │   └── workspace/
-│       └── WORKSPACE_MODEL.md
+│       ├── DRIFT_BACKLOG.md
+│       ├── WORKSPACE_MODEL.md
+│       └── WORKSPACE_TOPOLOGY.md
 ├── roadmaps/
 │   ├── neo-flowoff-unified-roadmap-2026.csv
 │   └── neo-flowoff-unified-roadmap-2026.md
 └── scripts/
+    ├── generate-workspace-topology
     └── workspace-doctor
 ```
 
@@ -69,7 +72,7 @@ neo-flw-landing
 neo-landing-open
 neoflow-content-machine
 neoflw-token
-neoflw-token-page 
+neoflw-token-page
 pro-ia
 ```
 
@@ -86,6 +89,7 @@ ele é a fonte obrigatória para documentação estrutural
 e transversal deste ecossistema.
 
 O guia canônico local está em:
+
 - [MARKDOWN_STYLE_GUIDE.md](/Users/nettomello/neomello/NEO-FlowOFF/MARKDOWN_STYLE_GUIDE.md)
 
 ────────────────────────────────────────
@@ -93,13 +97,18 @@ O guia canônico local está em:
 ## ⍟ Operação
 
 **Começar aqui:**
+
 - [manifests/workspace.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/workspace.json)
 - [manifests/repos.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/repos.json)
 - [manifests/integrations.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/integrations.json)
 - [docs/workspace/WORKSPACE_MODEL.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_MODEL.md)
+- [docs/workspace/WORKSPACE_TOPOLOGY.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_TOPOLOGY.md)
+- [docs/workspace/DRIFT_BACKLOG.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/DRIFT_BACKLOG.md)
 
 **Diagnóstico:**
 
 ```bash
 python3 scripts/workspace-doctor
+python3 scripts/generate-workspace-topology \
+  > docs/workspace/WORKSPACE_TOPOLOGY.md
 ```
