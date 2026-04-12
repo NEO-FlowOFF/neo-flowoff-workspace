@@ -403,7 +403,7 @@
     },
     {
       "name": "neoflw-token-page",
-      "localPath": "./neoflw-token-page ",
+      "localPath": "./neoflw-token-page",
       "remote": "https://github.com/NEO-PROTOCOL/neoflw-base-landing.git",
       "role": "microsite soberano do token com presenca ENS e links on-chain",
       "runtime": {
@@ -415,7 +415,6 @@
         "primaryCommand": "static-serve-manual",
         "ports": [],
         "notes": [
-          "Diretorio local possui espaco a direita no nome.",
           "Nao ha pipeline de build estruturado no package.json."
         ]
       },
@@ -425,7 +424,7 @@
           "ens-gateway"
         ],
         "configFiles": [
-          "./neoflw-token-page /vercel.json"
+          "./neoflw-token-page/vercel.json"
         ]
       },
       "publicSurface": {
@@ -452,9 +451,9 @@
         ]
       },
       "evidence": [
-        "./neoflw-token-page /README.md",
-        "./neoflw-token-page /DEPLOYMENT.md",
-        "./neoflw-token-page /index.html",
+        "./neoflw-token-page/README.md",
+        "./neoflw-token-page/DEPLOYMENT.md",
+        "./neoflw-token-page/index.html",
         "./manifests/tokens/base-neoflow.json"
       ]
     },

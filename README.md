@@ -78,7 +78,7 @@ pro-ia
 ```
 
 > Observação:
-> `neoflw-token-page ` possui espaço ao fim do nome local.
+> `neoflw-token-page` está saneado, sem espaço ao fim do nome local.
 > O manifesto preserva esse literal até uma renomeação planejada.
 
 ────────────────────────────────────────

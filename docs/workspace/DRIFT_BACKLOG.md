@@ -45,7 +45,6 @@ WF-003 | neo-flowoff-pwa | Remover simulacao silenciosa do cliente FlowPay
 WF-004 | neo-flw-landing | Canonicalizar superficie publica de webhook PIX
 WF-005 | pro-ia          | Alinhar verdade de deploy entre runtime e docs
 WF-006 | workspace-root  | Publicar e estabilizar manifesto canonico do token Base
-WF-007 | workspace-root  | Sanear path local de neoflw-token-page
 ```
 
 ────────────────────────────────────────
@@ -176,21 +175,20 @@ WF-007 | workspace-root  | Sanear path local de neoflw-token-page
 
 ────────────────────────────────────────
 
-### WF-007 · workspace-root
+### WF-007 · workspace-root (RESOLVIDO)
 
 **Drift**
-- diretório local `neoflw-token-page ` possui espaço final
+- diretório local `neoflw-token-page` estava com nome inconsistente em manifests e docs
 
 **Ação**
-- planejar renomeação segura do diretório local
-- atualizar manifesto, scripts e referências do root
+- normalizar `manifests/repos.json` e referências documentais para `./neoflw-token-page`
 
 **Saída esperada**
-- higiene operacional do workspace
+- o plano de controle aponta para o path real
 
 **Aceite**
-- path local saneado
-- `workspace-doctor` e `.gitignore` seguem válidos
+- `manifests/repos.json` usa `./neoflw-token-page`
+- `workspace.registry.json` não acusa repo faltando
 
 ────────────────────────────────────────
 

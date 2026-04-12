@@ -102,7 +102,6 @@ landing-open-lead-capture | observed | neo-landing-open -> Web3Forms
 token-canonical-path-to-pwa | drift-detected | A PWA deve ler o manifesto canônico do workspace root, mas o modulo de token ainda hardcodeia Polygon Mainnet.
 pwa-flowpay-client | observed-mock | Cliente aponta para FlowPay, mas fluxo de checkout e status ainda esta simulado no codigo.
 neo-flowoff-pwa | port-collision | Portas locais duplicadas entre superficies do mesmo repo.
-neoflw-token-page | path-hygiene | Diretorio local possui espaco a direita.
 pro-ia | deploy-drift | Documentacao ou superficie publica ainda aponta legado.
 ```
 
