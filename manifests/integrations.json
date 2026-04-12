@@ -8,22 +8,22 @@
       "type": "onchain-contract-reference",
       "status": "observed",
       "producer": {
-        "repo": "neoflw-token",
-        "surface": "token contract metadata"
+        "repo": "workspace-root",
+        "surface": "manifests/tokens/base-neoflow.json"
       },
       "consumer": {
         "repo": "ceo-escalavel-miniapp",
         "surface": "wallet connect, mint context e scan link"
       },
       "contract": {
-        "summary": "Miniapp aponta para o token canonico em Base Mainnet.",
+        "summary": "Miniapp aponta para o token canonico em Base Mainnet publicado no workspace root.",
         "network": "Base Mainnet",
         "chainId": 8453,
-        "tokenContract": "0x41F4ff3d45DED9C1332e4908F637B75fe83F5d6B"
+        "tokenContract": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26"
       },
       "dependencies": {
         "internal": [
-          "neoflw-token"
+          "neoflw-token-page"
         ],
         "external": [
           "BaseScan",
@@ -33,7 +33,8 @@
       "evidence": [
         "./ceo-escalavel-miniapp/README.md",
         "./ceo-escalavel-miniapp/constants.ts",
-        "./neoflw-token/docs/PROJECT_HOME.md"
+        "./manifests/tokens/base-neoflow.json",
+        "/Users/nettomello/neomello/neo-smart-factory/smart-core/deployments/NEOFLW_BASE_MAINNET.md"
       ]
     },
     {
@@ -41,19 +42,19 @@
       "type": "onchain-contract-reference",
       "status": "drift-detected",
       "producer": {
-        "repo": "neoflw-token",
-        "surface": "canonical token topology"
+        "repo": "workspace-root",
+        "surface": "manifests/tokens/base-neoflow.json"
       },
       "consumer": {
         "repo": "neo-flowoff-pwa",
-        "surface": "global config, token client e thirdweb integration"
+        "surface": "global config e token client"
       },
       "contract": {
-        "summary": "A PWA declara Base Mainnet no config global, mas o modulo de token ainda hardcodeia Polygon Mainnet.",
+        "summary": "A PWA deve ler o manifesto canônico do workspace root, mas o modulo de token ainda hardcodeia Polygon Mainnet.",
         "producerCanonical": {
           "network": "Base Mainnet",
           "chainId": 8453,
-          "tokenContract": "0x41F4ff3d45DED9C1332e4908F637B75fe83F5d6B"
+          "tokenContract": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26"
         },
         "consumerObserved": {
           "globalConfigBase": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
@@ -61,11 +62,8 @@
         }
       },
       "dependencies": {
-        "internal": [
-          "neoflw-token"
-        ],
+        "internal": [],
         "external": [
-          "Thirdweb",
           "Base RPC",
           "Polygon RPC"
         ]
@@ -73,7 +71,7 @@
       "evidence": [
         "./neo-flowoff-pwa/config/neo-protocol.config.js",
         "./neo-flowoff-pwa/src/modules/neoflw-token/src/token-client.js",
-        "./neoflw-token/docs/PROJECT_HOME.md"
+        "./manifests/tokens/base-neoflow.json"
       ]
     },
     {
@@ -295,7 +293,7 @@
       },
       "dependencies": {
         "internal": [
-          "neoflw-token"
+          "neoflw-token-page"
         ],
         "external": [
           "Telegram Bot API"
@@ -364,9 +362,7 @@
         "defaultApi": "https://flowpaycash.netlify.app/api"
       },
       "dependencies": {
-        "internal": [
-          "neoflw-token"
-        ],
+        "internal": [],
         "external": [
           "FlowPay"
         ]

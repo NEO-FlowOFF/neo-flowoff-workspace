@@ -1,5 +1,5 @@
 {
-  "name": "NEOFLW",
+  "name": "NEOFlowOFF",
   "symbol": "NEOFLW",
   "status": "canonical",
   "chain": {
@@ -9,14 +9,15 @@
     "explorer": "https://basescan.org"
   },
   "contract": {
-    "address": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
+    "address": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26",
     "decimals": 18,
     "links": {
-      "token": "https://basescan.org/token/0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b"
+      "token": "https://basescan.org/address/0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26#code"
     },
     "source": {
-      "factory": "NEO SMART FACTORY v0.5.3",
+      "factory": "NEO SMART FACTORY v0.5.3 - MULTICHAIN FOUNDATION",
       "repo": "https://github.com/neo-smart-token-factory/smart-core",
+      "deploymentDoc": "/Users/nettomello/neomello/neo-smart-factory/smart-core/deployments/NEOFLW_BASE_MAINNET.md",
       "maintainer": "NEO Protocol (team@neosmart.factory)",
       "attribution": "Powered by NEO SMART FACTORY"
     }
@@ -27,6 +28,7 @@
     "neo-flowoff"
   ],
   "notes": [
-    "Canonical token for NEO-FlowOFF ecosystem. Base mainnet deployment via NSFactory."
+    "Canonical token for NEO-FlowOFF ecosystem.",
+    "Source of truth: smart-core deployment doc on Base mainnet."
   ]
 }

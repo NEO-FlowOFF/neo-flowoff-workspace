@@ -10,6 +10,7 @@
   "tracks": [
     "manifests de repositorios soberanos",
     "manifests de integracoes cross-repo",
+    "manifests de tokens canonicos",
     "documentacao transversal",
     "padroes operacionais",
     "scripts de bootstrap e diagnostico",
@@ -19,6 +20,7 @@
     "repositorios e remotos",
     "superficies publicas e dominios",
     "plataformas de deploy",
+    "tokens canonicos",
     "portas locais de desenvolvimento",
     "endpoints de healthcheck",
     "webhooks",
@@ -51,7 +53,7 @@
     "Documentacao estrutural deve traduzir execucao real."
   ],
   "commandConvention": [
-    "Neste mac, invocar scripts locais com pnpm.",
+    "Neste mac, invocar scripts locais do workspace root com python3.",
     "Evitar npm em docs, handoffs e automacoes do workspace root."
   ]
 }

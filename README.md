@@ -46,6 +46,8 @@ NEO-FlowOFF/
 ├── manifests/
 │   ├── integrations.json
 │   ├── repos.json
+│   ├── tokens/
+│   │   └── base-neoflow.json
 │   └── workspace.json
 ├── docs/
 │   └── workspace/
@@ -71,7 +73,6 @@ neo-flowoff-pwa
 neo-flw-landing
 neo-landing-open
 neoflow-content-machine
-neoflw-token
 neoflw-token-page
 pro-ia
 ```
@@ -101,6 +102,7 @@ O guia canônico local está em:
 - [manifests/workspace.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/workspace.json)
 - [manifests/repos.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/repos.json)
 - [manifests/integrations.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/integrations.json)
+- [manifests/tokens/base-neoflow.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/tokens/base-neoflow.json)
 - [docs/workspace/WORKSPACE_MODEL.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_MODEL.md)
 - [docs/workspace/WORKSPACE_TOPOLOGY.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_TOPOLOGY.md)
 - [docs/workspace/DRIFT_BACKLOG.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/DRIFT_BACKLOG.md)
@@ -112,3 +114,13 @@ python3 scripts/workspace-doctor
 python3 scripts/generate-workspace-topology \
   > docs/workspace/WORKSPACE_TOPOLOGY.md
 ```
+
+**Token canônico:**
+
+- [manifests/tokens/base-neoflow.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/tokens/base-neoflow.json)
+- [NEOFLW_BASE_MAINNET.md](/Users/nettomello/neomello/neo-smart-factory/smart-core/deployments/NEOFLW_BASE_MAINNET.md)
+
+**Token canônico:**
+
+- [manifests/tokens/base-neoflow.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/tokens/base-neoflow.json)
+- [NEOFLW_BASE_MAINNET.md](/Users/nettomello/neomello/neo-smart-factory/smart-core/deployments/NEOFLW_BASE_MAINNET.md)

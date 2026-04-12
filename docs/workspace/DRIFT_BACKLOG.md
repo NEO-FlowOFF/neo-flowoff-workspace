@@ -44,7 +44,7 @@ WF-002 | neo-flowoff-pwa | Separar portas locais entre frontend e bot
 WF-003 | neo-flowoff-pwa | Remover simulacao silenciosa do cliente FlowPay
 WF-004 | neo-flw-landing | Canonicalizar superficie publica de webhook PIX
 WF-005 | pro-ia          | Alinhar verdade de deploy entre runtime e docs
-WF-006 | neoflw-token    | Publicar manifesto canonico de deploy consumivel
+WF-006 | workspace-root  | Publicar e estabilizar manifesto canonico do token Base
 WF-007 | workspace-root  | Sanear path local de neoflw-token-page
 ```
 
@@ -60,9 +60,10 @@ WF-007 | workspace-root  | Sanear path local de neoflw-token-page
 
 **Ação**
 - unificar `config/neo-protocol.config.js`,
-  `src/modules/neoflw-token/` e integrações Thirdweb
-  sob um contrato canônico de rede
+  `src/modules/neoflw-token/` e o manifesto canônico
+  `manifests/tokens/base-neoflow.json`
 - remover endereços hardcode fora do contrato central
+- eliminar qualquer fonte paralela de verdade para o token
 
 **Saída esperada**
 - PWA consome um único manifesto canônico
@@ -71,6 +72,7 @@ WF-007 | workspace-root  | Sanear path local de neoflw-token-page
 **Aceite**
 - nenhum endereço Polygon permanece como default
 - wallet, token UI e integrações usam o mesmo contrato
+- nenhuma superfície paralela participa da verdade corrente
 
 ────────────────────────────────────────
 
@@ -152,23 +154,25 @@ WF-007 | workspace-root  | Sanear path local de neoflw-token-page
 
 ────────────────────────────────────────
 
-### WF-006 · neoflw-token
+### WF-006 · workspace-root
 
 **Drift**
-- consumidores dependem de contratos e redes
-  mas não existe artefato canônico simples para consumo
+- o manifesto canônico do token existia,
+  mas precisava virar a fonte única do workspace
 
 **Ação**
-- publicar manifesto de deploy com rede,
-  chain id, token, vault, claim e status por ambiente
-- versionar esse artefato no repo soberano do token
+- manter `manifests/tokens/base-neoflow.json`
+  como contrato soberano do token Base
+- apontar consumidores para o manifesto do root
+- usar a doc de deploy do smart-core como evidencia
 
 **Saída esperada**
-- PWA, miniapp e microsite leem a mesma fonte
+- workspace-root passa a ser o plano de controle do token
+- consumidores leem a mesma verdade canônica
 
 **Aceite**
-- artefato de deploy existe e é referenciado
-- consumidores substituem hardcodes dispersos
+- nenhum repo legado define o token como fonte de verdade
+- miniapp, PWA e microsite convergem para o mesmo endereço
 
 ────────────────────────────────────────
 

@@ -22,19 +22,19 @@ Project URL: https://github.com/orgs/NEO-FlowOFF/projects/1
   - Create custom roadmap fields
   - Import roadmap items as draft issues
 
-### 2. neoflw-token
+### 2. NEO-FlowOFF/org
 
 - Milestone: `M1 Canonical Token Path`
 - Dependencies: `M0 Board Bootstrap`
 - Proposed Start Date: `2026-03-16`
 - Proposed Target Date: `2026-03-20`
 - Tasks:
-  - Choose canonical token network
-  - Retire non-canonical documentation branches
-  - Generate single deployment manifest
-  - Normalize addresses consumed by PWA and miniapp
+  - Publish canonical token manifest in the workspace root
+  - Retire the legacy token repo from active workspace routing
+  - Normalize addresses consumed by PWA, miniapp and microsite
+  - Use the smart-core deployment doc as the source of truth
 
-### 3. neoflw-token
+### 3. NEO-FlowOFF/org
 
 - Milestone: `M2 On-chain Readiness`
 - Dependencies: `M1 Canonical Token Path`
@@ -42,7 +42,7 @@ Project URL: https://github.com/orgs/NEO-FlowOFF/projects/1
 - Proposed Target Date: `2026-03-31`
 - Tasks:
   - Verify contracts in canonical explorer
-  - Fund `StakingVault`
+  - Validate token utility paths against the canonical manifest
   - Decide `GamificationController` go-live
   - Consolidate liquidity and token distribution operations
 

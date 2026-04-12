@@ -80,6 +80,8 @@ NEO-FlowOFF/
 ├── manifests/
 │   ├── repos.json
 │   ├── integrations.json
+│   ├── tokens/
+│   │   └── base-neoflow.json
 │   └── workspace.json
 ├── docs/
 │   └── workspace/

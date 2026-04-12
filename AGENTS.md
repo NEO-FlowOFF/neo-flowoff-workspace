@@ -56,9 +56,9 @@ Structural contract:
 
 ## Local Tooling Contract
 
-- On this Mac, local package execution must assume `pnpm`.
-- Use `pnpm` in workspace docs, handoffs and automation references.
-- Do not normalize local guidance back to `npm`.
+- On this Mac, workspace root script execution must assume `python3`.
+- Use `python3` in workspace docs, handoffs and automation references.
+- Do not normalize local guidance back to `npm` for workspace root operations.
 
 ## Routing Contract
 
@@ -73,6 +73,7 @@ Structural contract:
 - [README.md](/Users/nettomello/neomello/NEO-FlowOFF/README.md)
 - [manifests/repos.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/repos.json)
 - [manifests/integrations.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/integrations.json)
+- [manifests/tokens/base-neoflow.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/tokens/base-neoflow.json)
 - [manifests/workspace.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/workspace.json)
 - [docs/workspace/WORKSPACE_MODEL.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_MODEL.md)
 - [docs/workspace/WORKSPACE_TOPOLOGY.md](/Users/nettomello/neomello/NEO-FlowOFF/docs/workspace/WORKSPACE_TOPOLOGY.md)
