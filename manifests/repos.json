@@ -495,6 +495,7 @@
       },
       "publicSurface": {
         "domains": [
+          "https://pro.neoflowoff.agency",
           "https://proia.netlify.app/",
           "https://pro-ia.netlify.app/"
         ],
