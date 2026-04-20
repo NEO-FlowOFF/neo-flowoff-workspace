@@ -38,7 +38,7 @@ guia-md    | ./MARKDOWN_STYLE_GUIDE.md
 ```text
 repo                    | deploy                         | local | public
 ------------------------|--------------------------------|-------|------------------------------
-ceo-escalavel-miniapp   | vercel                         | 4173  | agenteflow.vercel.app
+ceo-escalavel-miniapp   | vercel                         | 4173  | agente.neoflowoff.agency
 flow-links-bio          | cloudflare-pages-inferred      | -     | flow-links-bio.pages.dev +1
 neo-flowoff-pwa         | netlify                        | 3000  | neo-flowoff-pwa.vercel.app
 neo-flw-landing         | vercel                         | -     | neoflowoff.agency +2

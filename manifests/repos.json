@@ -35,7 +35,7 @@
       },
       "publicSurface": {
         "domains": [
-          "https://agenteflow.vercel.app/"
+          "https://agente.neoflowoff.agency/"
         ],
         "apiEndpoints": [
           "/api/create-invoice"
@@ -96,7 +96,7 @@
           "https://flow-links-bio.pages.dev/hub"
         ],
         "outboundLinks": [
-          "https://neoflw.vercel.app/",
+          "https://neoflw.xyz/",
           "https://lp.neoflowoff.agency/",
           "https://flowpay.cash/",
           "https://neomello.eth.limo/",
@@ -404,7 +404,7 @@
     {
       "name": "neoflw-token-page",
       "localPath": "./neoflw-token-page",
-      "remote": "https://github.com/NEO-PROTOCOL/neoflw-base-landing.git",
+      "remote": "https://github.com/NEO-FlowOFF/neoflw-token-page.git",
       "role": "microsite soberano do token com presenca ENS e links on-chain",
       "runtime": {
         "category": "static-site",
