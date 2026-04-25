@@ -30,6 +30,8 @@ Os filhos entregam produto.
 - O root não é monorepo de produto.
 - O root não deve capturar código dos filhos.
 - O root funciona como control plane da organização.
+- O workspace pode ser descoberto pelo control-plane pessoal
+  `neomello-control-plane`, mas mantém soberania própria.
 
 ────────────────────────────────────────
 
@@ -105,6 +107,9 @@ NEO-FlowOFF/
 4. Se tocar vários repositórios, registrar contexto e padrão
    no root e aplicar mudanças de produto em cada repo soberano.
 5. Nunca confundir control plane com camada de execução.
+6. Relações transversais com outras organizações podem ser
+   registradas em `/Users/nettomello/neomello`, sem mover código
+   nem substituir os manifests deste workspace.
 
 ────────────────────────────────────────
 
