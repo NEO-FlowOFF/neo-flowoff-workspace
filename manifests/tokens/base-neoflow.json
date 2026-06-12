@@ -9,17 +9,16 @@
     "explorer": "https://basescan.org"
   },
   "contract": {
-    "address": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26",
+    "address": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
     "decimals": 18,
     "links": {
-      "token": "https://basescan.org/address/0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26#code"
+      "token": "https://basescan.org/token/0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b"
     },
     "source": {
-      "factory": "NEO SMART FACTORY v0.5.3 - MULTICHAIN FOUNDATION",
+      "factory": "NEO SMART FACTORY v0.5.3",
       "repo": "https://github.com/neo-smart-token-factory/smart-core",
-      "deploymentDoc": "/Users/nettomello/neomello/neo-smart-factory/smart-core/deployments/NEOFLW_BASE_MAINNET.md",
-      "maintainer": "NEO Protocol (team@neosmart.factory)",
-      "attribution": "Powered by NEO SMART FACTORY"
+      "deploymentDoc": "./neoflw-token-page/manifests/tokens/base-neoflow.json",
+      "maintainer": "NEO Protocol (team@neosmart.factory)"
     }
   },
   "usage": [
@@ -29,6 +28,7 @@
   ],
   "notes": [
     "Canonical token for NEO-FlowOFF ecosystem.",
-    "Source of truth: smart-core deployment doc on Base mainnet."
+    "Source of truth synced with neoflw-token-page on Base mainnet.",
+    "Real public contract approved in governance audit on 2026-06-01."
   ]
 }

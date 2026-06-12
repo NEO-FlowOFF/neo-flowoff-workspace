@@ -1,8 +1,8 @@
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
-
-> Modelo estrutural do workspace organizacional `NEO-FlowOFF`.
-> Este documento descreve fronteiras, responsabilidades
-> e o contrato de operacao do control plane.
+#
+/> Modelo estrutural do workspace organizacional `NEO-FlowOFF`.
+/> Este documento descreve fronteiras, responsabilidades
+/> e o contrato de operacao do control plane.
 
 ```text
 ========================================

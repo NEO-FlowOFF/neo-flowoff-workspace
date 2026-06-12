@@ -46,7 +46,7 @@
         "blockchain": {
           "network": "Base Mainnet",
           "chainId": 8453,
-          "tokenContract": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26"
+          "tokenContract": "0x41F4ff3d45DED9C1332e4908F637B75fe83F5d6B"
         }
       },
       "dependencies": {
@@ -147,25 +147,25 @@
         ],
         "notes": [
           "Frontend Vite e bot WhatsApp usam a mesma porta 3000 por padrao.",
-          "Netlify functions expostas para /api/invertexto e /api/health."
+          "A superficie publica do frontend foi canonicalizada para Base Mainnet.",
+          "Ainda existem docs e configs legadas com referencias a Polygon no repo."
         ]
       },
       "deployment": {
-        "primaryPlatform": "netlify",
+        "primaryPlatform": "unpublished-static-pwa",
         "secondaryPlatforms": [
+          "netlify-config-present",
           "vercel-reference-in-sitemap"
         ],
         "configFiles": [
-          "./neo-flowoff-pwa/frontend/vite.config.js"
+          "./neo-flowoff-pwa/frontend/vite.config.js",
+          "./neo-flowoff-pwa/netlify.toml"
         ]
       },
       "publicSurface": {
-        "domains": [
-          "https://neo-flowoff-pwa.vercel.app/"
-        ],
-        "apiEndpoints": [
-          "/api/invertexto",
-          "/api/health"
+        "domains": [],
+        "notes": [
+          "Nenhum hosting ou dominio canonico foi aprovado para a PWA ate 2026-06-01."
         ],
         "webhookEndpoints": [
           "/webhook",
@@ -178,16 +178,16 @@
         "blockchain": {
           "observedNetworks": [
             {
+              "name": "Base Mainnet",
+              "chainId": 8453,
+              "contractAddress": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
+              "status": "canonical-in-public-frontend-and-token-client"
+            },
+            {
               "name": "Polygon Mainnet",
               "chainId": 137,
               "contractAddress": "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2",
-              "status": "still-hardcoded-in-token-module"
-            },
-            {
-              "name": "Base Mainnet",
-              "chainId": 8453,
-              "contractAddress": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26",
-              "status": "declared-in-global-config"
+              "status": "legacy-config-and-docs-still-present"
             }
           ]
         }
@@ -436,7 +436,7 @@
         "blockchain": {
           "network": "Base Mainnet",
           "chainId": 8453,
-          "tokenContract": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26"
+          "tokenContract": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b"
         }
       },
       "dependencies": {

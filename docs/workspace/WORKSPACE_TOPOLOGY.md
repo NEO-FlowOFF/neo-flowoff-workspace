@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
-
+#
 > Documento gerado a partir dos manifests do workspace.
 > Fonte: `manifests/repos.json`, `manifests/integrations.json`
 > e `manifests/workspace.json`.
@@ -40,7 +40,7 @@ repo                    | deploy                         | local | public
 ------------------------|--------------------------------|-------|------------------------------
 ceo-escalavel-miniapp   | vercel                         | 4173  | agente.neoflowoff.agency
 flow-links-bio          | cloudflare-pages-inferred      | -     | flow-links-bio.pages.dev +1
-neo-flowoff-pwa         | netlify                        | 3000  | neo-flowoff-pwa.vercel.app
+neo-flowoff-pwa         | unpublished-static-pwa         | 3000  | -
 neo-flw-landing         | vercel                         | -     | neoflowoff.agency +2
 neo-landing-open        | vercel-inferred                | -     | neo-landing-open.vercel.app
 neoflow-content-machine | fly-io                         | 3001  | -
@@ -80,7 +80,7 @@ pro-ia | /api/webhook
 
 ```text
 token-base-canonical-to-miniapp | observed | workspace-root -> ceo-escalavel-miniapp
-token-canonical-path-to-pwa | drift-detected | workspace-root -> neo-flowoff-pwa
+token-canonical-path-to-pwa | partially-aligned | workspace-root -> neo-flowoff-pwa
 flow-links-routing-to-owned-surfaces | observed | flow-links-bio -> neo-flw-landing,neoflw-token-page
 landing-flowpay-charge-proxy | observed | neo-flw-landing -> FlowPay
 landing-payment-webhook-confirmation | observed | FlowPay or Woovi -> neo-flw-landing
@@ -99,7 +99,7 @@ landing-open-lead-capture | observed | neo-landing-open -> Web3Forms
 ## ⍟ Drifts
 
 ```text
-token-canonical-path-to-pwa | drift-detected | A PWA deve ler o manifesto canônico do workspace root, mas o modulo de token ainda hardcodeia Polygon Mainnet.
+token-canonical-path-to-pwa | partially-aligned | Frontend publico e token client ja convergem para Base, mas ainda existem configuracoes e docs legadas com Polygon no repo.
 pwa-flowpay-client | observed-mock | Cliente aponta para FlowPay, mas fluxo de checkout e status ainda esta simulado no codigo.
 neo-flowoff-pwa | port-collision | Portas locais duplicadas entre superficies do mesmo repo.
 pro-ia | deploy-drift | Documentacao ou superficie publica ainda aponta legado.
@@ -107,10 +107,20 @@ pro-ia | deploy-drift | Documentacao ou superficie publica ainda aponta legado.
 
 ────────────────────────────────────────
 
-## ⨀ Geração
+## ⨀ Governança Local
+
+```text
+approved-on-2026-06-01 | root-pnpm-control-plane | legitimo
+approved-on-2026-06-01 | child-repo-npmrc-store-dir | legitimo
+pending-structural     | root-gitlinks-without-gitmodules | neo-flowoff-agency, neoflowoff-chat-ui
+pending-doc-consistency| neoflow-content-machine | prompts removidos ainda citados na documentacao
+```
+
+────────────────────────────────────────
+
+## ◯ Geração
 
 ```bash
 python3 scripts/generate-workspace-topology \
   > docs/workspace/WORKSPACE_TOPOLOGY.md
 ```
-

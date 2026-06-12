@@ -19,7 +19,7 @@
         "summary": "Miniapp aponta para o token canonico em Base Mainnet publicado no workspace root.",
         "network": "Base Mainnet",
         "chainId": 8453,
-        "tokenContract": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26"
+        "tokenContract": "0x41F4ff3d45DED9C1332e4908F637B75fe83F5d6B"
       },
       "dependencies": {
         "internal": [
@@ -40,25 +40,27 @@
     {
       "id": "token-canonical-path-to-pwa",
       "type": "onchain-contract-reference",
-      "status": "drift-detected",
+      "status": "partially-aligned",
       "producer": {
         "repo": "workspace-root",
         "surface": "manifests/tokens/base-neoflow.json"
       },
       "consumer": {
         "repo": "neo-flowoff-pwa",
-        "surface": "global config e token client"
+        "surface": "frontend publico, global config e token client"
       },
       "contract": {
-        "summary": "A PWA deve ler o manifesto canônico do workspace root, mas o modulo de token ainda hardcodeia Polygon Mainnet.",
+        "summary": "A superficie publica da PWA e o token client ja convergem para o token canonico em Base, mas ainda existem configuracoes e documentacao legadas com Polygon no repo.",
         "producerCanonical": {
           "network": "Base Mainnet",
           "chainId": 8453,
-          "tokenContract": "0xF4Fbd30e3Ea69457adD30F7C3D6fde25f7D8Db26"
+          "tokenContract": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b"
         },
         "consumerObserved": {
+          "publicFrontendBase": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
           "globalConfigBase": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
-          "tokenModulePolygon": "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2"
+          "tokenClientBase": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
+          "legacyPolygonConfig": "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2"
         }
       },
       "dependencies": {

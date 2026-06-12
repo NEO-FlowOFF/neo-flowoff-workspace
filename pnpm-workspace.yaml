@@ -51,3 +51,20 @@ onlyBuiltDependencies:
   - solc
   - next
   - edr-win32-x64-msvc
+
+allowBuilds:
+  '@reown/appkit': true
+  '@scarf/scarf': true
+  bufferutil: true
+  esbuild: true
+  keccak: true
+  secp256k1: true
+  sharp: true
+  unrs-resolver: true
+  utf-8-validate: true
+  typescript-eslint: true
+  sharp-libvips-darwin-arm64: true
+  wordnet-db: true
+  solc: true
+  next: true
+  edr-win32-x64-msvc: true
