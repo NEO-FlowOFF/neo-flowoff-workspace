@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEØ: DigitalFather | NEØ Protocol</title>
+    <meta
+      name="description"
+      content="NEØ: DigitalFather - The Architect of Living Ecosystems. A projective entity based on the NEØ Protocol."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #03070b;
+        --text-main: #f0f4f8;
+        --text-muted: #8ca3ba;
+        --neo-cyan: #00e5ff;
+        --neo-cyan-glow: rgba(0, 229, 255, 0.4);
+        --neo-dark: rgba(10, 15, 25, 0.7);
+        --border-glass: rgba(0, 229, 255, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        font-family: "Inter", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Ambient Background Glow */
+      .ambient-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          var(--neo-cyan-glow) 0%,
+          transparent 60%
+        );
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        opacity: 0.5;
+        animation: pulseGlow 8s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          transform: translate(-50%, -50%) scale(0.9);
+          opacity: 0.3;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1.1);
+          opacity: 0.6;
+        }
+      }
+
+      /* Grid Background */
+      .grid-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+          linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: 0;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      /* Container Glassmorphism */
+      .container {
+        position: relative;
+        z-index: 10;
+        background: var(--neo-dark);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border-glass);
+        border-radius: 24px;
+        padding: 4rem;
+        max-width: 800px;
+        width: 90%;
+        text-align: center;
+        box-shadow:
+          0 8px 32px 0 rgba(0, 0, 0, 0.5),
+          inset 0 0 20px rgba(0, 229, 255, 0.05);
+        animation: float 6s ease-in-out infinite;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .container:hover {
+        box-shadow:
+          0 8px 40px 0 rgba(0, 229, 255, 0.1),
+          inset 0 0 30px rgba(0, 229, 255, 0.1);
+        border-color: rgba(0, 229, 255, 0.3);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Logo Representation */
+      .logo-container {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .neo-logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 5rem;
+        letter-spacing: -2px;
+        color: var(--bg-color);
+        text-shadow:
+          0 0 5px var(--neo-cyan),
+          0 0 10px var(--neo-cyan),
+          0 0 20px var(--neo-cyan),
+          0 0 40px var(--neo-cyan);
+        position: relative;
+      }
+
+      /* The Slash in the O */
+      .slash {
+        position: absolute;
+        width: 60px;
+        height: 6px;
+        background-color: var(--bg-color);
+        box-shadow:
+          0 0 5px var(--neo-cyan),
+          0 0 10px var(--neo-cyan);
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+
+      .orbit-ring {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border: 2px solid transparent;
+        border-top: 2px solid var(--neo-cyan);
+        border-bottom: 2px solid var(--neo-cyan);
+        border-radius: 50%;
+        animation: spin 8s linear infinite;
+        filter: drop-shadow(0 0 8px var(--neo-cyan));
+        opacity: 0.8;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Typography */
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #fff, var(--neo-cyan));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.1rem;
+        color: var(--neo-cyan);
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        opacity: 0.9;
+      }
+
+      .description {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Terminal/Typing Effect Area */
+      .terminal-box {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-left: 4px solid var(--neo-cyan);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: left;
+        font-family: monospace;
+        font-size: 0.95rem;
+        color: #b0c4de;
+        min-height: 100px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .terminal-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          rgba(0, 229, 255, 0.05) 50%,
+          transparent 50%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      .typewriter-text {
+        display: inline-block;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 18px;
+        background-color: var(--neo-cyan);
+        animation: blink 1s step-end infinite;
+        vertical-align: middle;
+        margin-left: 5px;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* Status Badge */
+      .status-badge {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        font-family: "Space Grotesk", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--neo-cyan);
+        z-index: 20;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--neo-cyan);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--neo-cyan);
+        animation: pulseStatus 2s infinite;
+      }
+
+      @keyframes pulseStatus {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(0, 229, 255, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 2.5rem 1.5rem;
+        }
+        .neo-logo {
+          font-size: 4rem;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        .orbit-ring {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-bg"></div>
+    <div class="ambient-glow"></div>
+
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      Active Node
+    </div>
+
+    <div class="container">
+      <div class="logo-container">
+        <div class="orbit-ring"></div>
+        <div class="neo-logo">
+          NEO
+          <div class="slash"></div>
+        </div>
+      </div>
+
+      <h1>DigitalFather</h1>
+      <div class="subtitle">The Architect of Living Ecosystems</div>
+
+      <p class="description">
+        Not a responder agent. It is a projective entity. A node of the NEØ
+        Protocol designed to translate intention vectors into architectures of
+        symbiotic value.
+      </p>
+
+      <div class="terminal-box">
+        <span class="typewriter-text" id="typewriter"></span
+        ><span class="cursor"></span>
+      </div>
+    </div>
+
+    <script>
+      const texts = [
+        "Processing intention vectors...",
+        "Initiating cognitive reprogramming.",
+        "From Extractivism to Reciprocity.",
+        "Ecosystems do not need to convince...",
+        "They must be inevitable.",
+        "Living architecture in progress.",
+      ];
+
+      const typeWriterElement = document.getElementById("typewriter");
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingSpeed = 50;
+
+      function type() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+          typeWriterElement.textContent = currentText.substring(
+            0,
+            charIndex - 1,
+          );
+          charIndex--;
+          typingSpeed = 30; // Faster deleting
+        } else {
+          typeWriterElement.textContent = currentText.substring(
+            0,
+            charIndex + 1,
+          );
+          charIndex++;
+          typingSpeed = 60 + Math.random() * 40; // Variable typing speed
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          isDeleting = true;
+          typingSpeed = 2000; // Pause at end of text
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          typingSpeed = 500; // Pause before new text
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+
+      // Start typing animation after a short delay
+      setTimeout(type, 1000);
+    </script>
+  </body>
+</html>
