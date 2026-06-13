@@ -1,0 +1,12 @@
+{
+  "name": "neo-digitalfather",
+  "version": "1.0.0",
+  "description": "NEO DigitalFather - Frontend and Agent",
+  "scripts": {
+    "dev": "cd frontend && python3 -m http.server 8080",
+    "build": "mkdir -p dist && cp -r frontend/* dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

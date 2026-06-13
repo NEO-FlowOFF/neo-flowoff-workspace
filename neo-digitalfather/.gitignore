@@ -1,0 +1,19 @@
+# Node / JS
+node_modules/
+dist/
+.wrangler/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Environment
+.env
+.env.local
+.DS_Store
