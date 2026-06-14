@@ -48,6 +48,8 @@ WF-004 | neo-flw-landing | Canonicalizar superficie publica de webhook PIX
 WF-005 | pro-ia          | Alinhar verdade de deploy entre runtime e docs
 WF-006 | workspace-root  | Publicar e estabilizar manifesto canonico do token Base
 WF-008 | workspace-root  | Registrar governanca local do control plane pnpm
+WF-009 | neo-flw-landing | Refatorar completamente o frontend publico (lp.neoflowoff.agency)
+WF-010 | ceo-escalavel-miniapp | Corrigir link quebrado em agente.neoflowoff.agency
 ```
 
 ────────────────────────────────────────
@@ -231,6 +233,42 @@ WF-008 | workspace-root  | Registrar governanca local do control plane pnpm
 - pendencias estruturais continuam visiveis
 - a documentacao deixa claro o que foi aprovado
   e o que ainda exige correção tecnica
+
+────────────────────────────────────────
+
+### WF-009 · neo-flw-landing
+
+**Drift**
+- O frontend atual em `lp.neoflowoff.agency` requer uma alteração/refatoração completa para se adequar às necessidades atuais do ecossistema.
+
+**Ação**
+- Refazer e alterar completamente o código de frontend do repositório soberano.
+- Manter íntegras as rotas de webhook e integração de tracking já documentadas.
+
+**Saída esperada**
+- Nova interface publicada e operante sem quebrar as fundações do repositório.
+
+**Aceite**
+- Código atualizado em `neo-flw-landing`.
+- Deploy concluído com sucesso e visível em `lp.neoflowoff.agency`.
+
+────────────────────────────────────────
+
+### WF-010 · ceo-escalavel-miniapp
+
+**Drift**
+- O domínio mapeado `agente.neoflowoff.agency` atualmente está fora do ar ou "não leva para lugar nenhum" (link/roteamento quebrado).
+
+**Ação**
+- Auditar logs da Vercel (ou plataforma de deploy correspondente).
+- Corrigir build, variáveis de ambiente ou regras de DNS associadas ao domínio.
+- Restabelecer o miniapp/agente no domínio correto.
+
+**Saída esperada**
+- Aplicação volta a responder no domínio público.
+
+**Aceite**
+- Acesso à URL `agente.neoflowoff.agency` carrega a interface do Game IA do Telegram sem retornar erros 404 ou 500.
 
 ────────────────────────────────────────
 
