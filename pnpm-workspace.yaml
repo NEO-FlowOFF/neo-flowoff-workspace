@@ -5,6 +5,7 @@ packages:
   - 'neo-flowoff-pwa'
   - 'neo-flw-landing'
   - 'neo-landing-open'
+  - 'neo-shared'
   - 'neoflow-content-machine'
   - 'neoflowoff-chat-ui'
   - 'neoflw-token'
@@ -68,3 +69,4 @@ allowBuilds:
   solc: true
   next: true
   edr-win32-x64-msvc: true
+

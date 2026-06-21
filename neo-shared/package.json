@@ -1,0 +1,14 @@
+{
+  "name": "@neo-flowoff/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./logger": "./src/logger.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
