@@ -2,13 +2,21 @@
   "name": "@neo-flowoff/shared",
   "version": "1.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NEO-FlowOFF/neo-flowoff-workspace.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "exports": {
-    "./logger": "./src/logger.ts"
+    "./logger": {
+      "types": "./src/logger.ts",
+      "import": "./src/logger.ts",
+      "default": "./src/logger.ts"
+    }
   },
   "files": [
     "src"
-  ],
-  "devDependencies": {
-    "typescript": "^5.0.0"
-  }
+  ]
 }
