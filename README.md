@@ -41,6 +41,7 @@ Os filhos executam produto.
 NEO-FlowOFF/
 ├── AGENTS.md
 ├── MARKDOWN_STYLE_GUIDE.md
+├── PACKAGES.md
 ├── README.md
 ├── .gitignore
 ├── manifests/

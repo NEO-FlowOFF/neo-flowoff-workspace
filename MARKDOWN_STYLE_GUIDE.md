@@ -1,8 +1,5 @@
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
-
-> Fonte canônica de estilo para documentação do projeto.
-> Todo arquivo Markdown deve seguir este sistema de organização
-> visual e semântica.
+# STANDARD MARKDOWN STYLE
 
 ```text
 ========================================
@@ -266,7 +263,6 @@ Todos os arquivos `.md` devem pertencer ao mesmo sistema editorial.
 
 Na dúvida entre estilo livre ou rigor padronizado,
 escolha a geometria e a consistência técnica.
-
 
 ### Assinatura padrão
 

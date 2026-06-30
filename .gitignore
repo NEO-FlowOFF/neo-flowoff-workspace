@@ -22,3 +22,5 @@ neoflowoff/
 .pnpm-store/
 workspace.registry.json
 node_modules
+.npmrc
+.npmrc

@@ -95,6 +95,9 @@
           "https://flow-links-bio.pages.dev",
           "https://flow-links-bio.pages.dev/hub"
         ],
+        "webhookEndpoints": [
+          "/api/meta-webhook"
+        ],
         "outboundLinks": [
           "https://neoflw.xyz/",
           "https://lp.neoflowoff.agency/",
@@ -119,101 +122,6 @@
         "./flow-links-bio/src/layouts/Base.astro",
         "./flow-links-bio/src/pages/hub.astro",
         "./flow-links-bio/src/data/links.ts"
-      ]
-    },
-    {
-      "name": "neo-flowoff-pwa",
-      "localPath": "./neo-flowoff-pwa",
-      "remote": "https://github.com/NEO-FlowOFF/neo-flowoff-pwa.git",
-      "role": "pwa principal com wallet, mcp-router, identidade e modulos de operacao",
-      "runtime": {
-        "category": "hybrid-app",
-        "framework": "Node + Vite PWA + modulos Express standalone",
-        "node": ">=18.0.0"
-      },
-      "localDevelopment": {
-        "primaryCommand": "pnpm dev",
-        "ports": [
-          {
-            "purpose": "frontend-vite",
-            "value": 3000,
-            "source": "frontend/vite.config.js"
-          },
-          {
-            "purpose": "whatsapp-standalone",
-            "value": 3000,
-            "source": "src/modules/flowcloser/whatsapp/server.js"
-          }
-        ],
-        "notes": [
-          "Frontend Vite e bot WhatsApp usam a mesma porta 3000 por padrao.",
-          "A superficie publica do frontend foi canonicalizada para Base Mainnet.",
-          "Ainda existem docs e configs legadas com referencias a Polygon no repo."
-        ]
-      },
-      "deployment": {
-        "primaryPlatform": "unpublished-static-pwa",
-        "secondaryPlatforms": [
-          "netlify-config-present",
-          "vercel-reference-in-sitemap"
-        ],
-        "configFiles": [
-          "./neo-flowoff-pwa/frontend/vite.config.js",
-          "./neo-flowoff-pwa/netlify.toml"
-        ]
-      },
-      "publicSurface": {
-        "domains": [],
-        "notes": [
-          "Nenhum hosting ou dominio canonico foi aprovado para a PWA ate 2026-06-01."
-        ],
-        "webhookEndpoints": [
-          "/webhook",
-          "/api/webhook/instagram"
-        ],
-        "serviceApis": [
-          "FLOWPAY_API_URL",
-          "IQAI_API_URL"
-        ],
-        "blockchain": {
-          "observedNetworks": [
-            {
-              "name": "Base Mainnet",
-              "chainId": 8453,
-              "contractAddress": "0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
-              "status": "canonical-in-public-frontend-and-token-client"
-            },
-            {
-              "name": "Polygon Mainnet",
-              "chainId": 137,
-              "contractAddress": "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2",
-              "status": "legacy-config-and-docs-still-present"
-            }
-          ]
-        }
-      },
-      "dependencies": {
-        "internal": [
-          "neoflw-token-page"
-        ],
-        "external": [
-          "FlowPay",
-          "Meta WhatsApp API",
-          "IQAI",
-          "Pinata",
-          "Ceramic",
-          "Kwil",
-          "GUN"
-        ]
-      },
-      "evidence": [
-        "./neo-flowoff-pwa/package.json",
-        "./neo-flowoff-pwa/frontend/vite.config.js",
-        "./neo-flowoff-pwa/config/neo-protocol.config.js",
-        "./neo-flowoff-pwa/src/modules/flowpay/flowpay-client.js",
-        "./neo-flowoff-pwa/src/modules/flowcloser/whatsapp/server.js",
-        "./neo-flowoff-pwa/src/modules/neoflw-token/src/token-client.js",
-        "./manifests/tokens/base-neoflow.json"
       ]
     },
     {
@@ -261,7 +169,8 @@
         ],
         "webhookEndpoints": [
           "/api/payment-webhook",
-          "/api/webhook"
+          "/api/webhook",
+          "/api/meta-webhook"
         ],
         "healthcheckEndpoints": [
           "/api/health"
@@ -524,6 +433,134 @@
         "./pro-ia/app/api/webhook/route.ts",
         "./pro-ia/README.md",
         "./pro-ia/docs/links-disponiveis.md"
+      ]
+    },
+    {
+      "name": "neo-digitalfather",
+      "localPath": "./neo-digitalfather",
+      "remote": "https://github.com/NEO-FlowOFF/neo-digitalfather.git",
+      "role": "NEO DigitalFather - Frontend and Agent",
+      "runtime": {
+        "category": "unknown",
+        "framework": "unknown",
+        "node": "18+"
+      },
+      "localDevelopment": {
+        "primaryCommand": "pnpm dev",
+        "ports": [],
+        "notes": []
+      },
+      "deployment": {
+        "primaryPlatform": "unknown",
+        "configFiles": []
+      },
+      "publicSurface": {
+        "domains": [],
+        "webhookEndpoints": [],
+        "serviceApis": []
+      },
+      "dependencies": {
+        "internal": [],
+        "external": []
+      },
+      "evidence": [
+        "./neo-digitalfather/package.json"
+      ]
+    },
+    {
+      "name": "neo-sdr-adapter",
+      "localPath": "./neo-sdr-adapter",
+      "remote": "https://github.com/NEO-FlowOFF/neo-sdr-adapter.git",
+      "role": "TODO: describe role",
+      "runtime": {
+        "category": "unknown",
+        "framework": "unknown",
+        "node": "18+"
+      },
+      "localDevelopment": {
+        "primaryCommand": "pnpm dev",
+        "ports": [],
+        "notes": []
+      },
+      "deployment": {
+        "primaryPlatform": "unknown",
+        "configFiles": []
+      },
+      "publicSurface": {
+        "domains": [],
+        "webhookEndpoints": [],
+        "serviceApis": []
+      },
+      "dependencies": {
+        "internal": [],
+        "external": []
+      },
+      "evidence": [
+        "./neo-sdr-adapter/package.json"
+      ]
+    },
+    {
+      "name": "neoflowoff-chat-ui",
+      "localPath": "./neoflowoff-chat-ui",
+      "remote": "https://github.com/NEO-FlowOFF/neoflowoff-chat-ui.git",
+      "role": "TODO: describe role",
+      "runtime": {
+        "category": "unknown",
+        "framework": "unknown",
+        "node": "18+"
+      },
+      "localDevelopment": {
+        "primaryCommand": "pnpm dev",
+        "ports": [],
+        "notes": []
+      },
+      "deployment": {
+        "primaryPlatform": "unknown",
+        "configFiles": []
+      },
+      "publicSurface": {
+        "domains": [],
+        "webhookEndpoints": [],
+        "serviceApis": []
+      },
+      "dependencies": {
+        "internal": [],
+        "external": []
+      },
+      "evidence": [
+        "./neoflowoff-chat-ui/package.json"
+      ]
+    },
+    {
+      "name": "neoflw-token",
+      "localPath": "./neoflw-token",
+      "remote": "https://github.com/NEO-FlowOFF/neoflw-token.git",
+      "role": "Orquestra\u00e7\u00e3o terminal para o protocolo NEOFLOW com Ape Framework",
+      "runtime": {
+        "category": "unknown",
+        "framework": "unknown",
+        "node": "18+"
+      },
+      "localDevelopment": {
+        "primaryCommand": "pnpm dev",
+        "ports": [],
+        "notes": []
+      },
+      "deployment": {
+        "primaryPlatform": "unknown",
+        "configFiles": []
+      },
+      "publicSurface": {
+        "domains": [],
+        "webhookEndpoints": [],
+        "serviceApis": []
+      },
+      "dependencies": {
+        "internal": [],
+        "external": []
+      },
+      "evidence": [
+        "./neoflw-token/package.json"
       ]
     }
   ]
