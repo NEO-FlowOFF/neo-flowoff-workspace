@@ -1,0 +1,9 @@
+{
+  "oxc.path.node": "${workspaceFolder}/.vscode/mise-tools/node",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "${workspaceFolder}/.vscode/mise-tools/node"
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/.vscode/mise-tools/python",
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true
+}
