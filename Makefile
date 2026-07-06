@@ -51,8 +51,7 @@ install: ## Instala dependências para todo o ecossistema (pnpm install)
 
 clean: ## Remove pastas node_modules, dist e build de todos os projetos
 	@echo "$(CYAN)🧹 Limpando node_modules e caches do workspace...$(RESET)"
-	rm -rf node_modules
-	pnpm -r exec rm -rf node_modules dist build .turbo .next .ape
+	@find . -maxdepth 3 -type d \( -name "node_modules" -o -name "dist" -o -name "build" -o -name ".turbo" -o -name ".next" -o -name ".ape" \) -prune -exec rm -rf '{}' +
 	@echo "$(GREEN)✅ Limpeza concluída.$(RESET)"
 
 build: ## Roda o script de build em todos os repositórios (se aplicável)
