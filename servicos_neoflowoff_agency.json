@@ -1,108 +1,126 @@
 [
   {
-    "nome": "Agente SDR Vendas",
+    "nome": "Agent SDR Comercial",
     "preco": 4900,
     "preco_promocional": 2900,
-    "descricao": "Agente de IA para WhatsApp capaz de atender clientes, qualificar leads, responder dúvidas e encaminhar oportunidades para sua equipe comercial.",
+    "descricao": "Agente comercial de IA para WhatsApp e canais digitais, preparado para atender, qualificar intenção, registrar sinais de compra e encaminhar oportunidades reais para a equipe comercial. Não é chatbot de respostas; é uma camada de pré-venda operando todos os dias.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-SDR-01",
     "pais": "Brasil"
   },
   {
-    "nome": "Agentes IA",
+    "nome": "NEØ Signal Layer",
+    "preco": 6900,
+    "preco_promocional": 3900,
+    "descricao": "Camada de sinal comercial para empresas que precisam rastrear intenção com mais precisão. Integra Pixel, CAPI, eventos, UTMs, webhooks, origem do lead e deduplicação para alimentar mídia, CRM, automações e IA sem depender apenas da plataforma.",
+    "link": "https://chat.neoflowoff.agency",
+    "codigo_item": "NEØ-SIGNAL-01",
+    "pais": "Brasil"
+  },
+  {
+    "nome": "Growth Operating System",
+    "preco": 12900,
+    "preco_promocional": 7900,
+    "descricao": "Implantação de um ecossistema comercial conectado: aquisição, webapp, CRM, automações, agente IA, dashboard e fluxo de handoff para vendas. Para empresas que querem parar de empilhar ferramentas soltas e começar a operar um sistema de crescimento.",
+    "link": "https://chat.neoflowoff.agency",
+    "codigo_item": "NEØ-GROWTH-01",
+    "pais": "Brasil"
+  },
+  {
+    "nome": "Agentes IA Sob Medida",
     "preco": 9900,
     "preco_promocional": 5900,
-    "descricao": "Agentes inteligentes personalizados para atendimento, vendas, suporte e automação de processos empresariais.",
+    "descricao": "Criação de agentes inteligentes personalizados para vendas, atendimento, suporte, triagem, operação interna e automação de processos. Cada agente é desenhado para atuar dentro do fluxo real da empresa, com contexto, regras, memória operacional e objetivo claro.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-AI-01",
     "pais": "Brasil"
   },
   {
-    "nome": "CRM Inteligente",
+    "nome": "CRM de Sinais e Oportunidades",
     "preco": 4900,
     "preco_promocional": 2900,
-    "descricao": "Centralização de conversas, leads, oportunidades e histórico comercial em uma única plataforma.",
+    "descricao": "Centralização de leads, conversas, oportunidades, histórico comercial e sinais de intenção em uma única camada operacional. Ideal para empresas que precisam enxergar o caminho do lead desde a origem até a venda.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-CRM-01",
     "pais": "Brasil"
   },
   {
-    "nome": "API WhatsApp Oficial",
+    "nome": "WhatsApp Business API",
     "preco": 2900,
     "preco_promocional": 1900,
-    "descricao": "Integração profissional do WhatsApp com automações, CRM, agentes de IA e sistemas empresariais.",
+    "descricao": "Integração profissional do WhatsApp Business Platform com CRM, agentes de IA, automações, webhooks e processos comerciais. Estrutura pensada para operação séria, com escalabilidade, rastreabilidade e controle.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-WPP-01",
     "pais": "Brasil"
   },
   {
-    "nome": "App Meta Developers",
+    "nome": "Infraestrutura Meta Developers",
     "preco": 1900,
     "preco_promocional": 990,
-    "descricao": "Criação e configuração de aplicativos Meta para integrações com WhatsApp Business Platform e APIs oficiais.",
+    "descricao": "Criação e configuração técnica de aplicativo Meta para integrações oficiais com WhatsApp Business Platform, eventos, pixels, APIs e permissões necessárias para uma operação comercial mais robusta.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-META-01",
     "pais": "Brasil"
   },
   {
-    "nome": "WebApp e Landing Pages",
+    "nome": "WebApp Comercial",
     "preco": 3900,
     "preco_promocional": 2490,
-    "descricao": "Desenvolvimento de aplicações web e páginas de conversão conectadas ao ecossistema comercial da empresa.",
+    "descricao": "Desenvolvimento de webapps e páginas de conversão conectadas ao ecossistema comercial da empresa. Mais do que uma landing page, é uma interface de aquisição com rastreamento, CTA, dados, automações e conexão com CRM ou agente IA.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-WEB-01",
     "pais": "Brasil"
   },
   {
-    "nome": "Sites com Ecossistema",
+    "nome": "Site com Ecossistema",
     "preco": 7900,
     "preco_promocional": 4900,
-    "descricao": "Sites conectados a CRM, automações, inteligência artificial, dashboards e geração de oportunidades.",
+    "descricao": "Construção de site conectado a CRM, automações, inteligência artificial, eventos, dashboards e canais comerciais. Para empresas que não querem apenas presença digital, mas uma infraestrutura capaz de gerar, medir e organizar oportunidades.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-SITE-01",
     "pais": "Brasil"
   },
   {
-    "nome": "Dashboard e Gestão de Dados",
+    "nome": "Dashboard de Operação e Dados",
     "preco": 4900,
     "preco_promocional": 2900,
-    "descricao": "Painéis executivos para monitoramento de atendimento, vendas, performance e indicadores operacionais.",
+    "descricao": "Painel executivo para acompanhar atendimento, leads, vendas, campanhas, canais, performance e indicadores operacionais. Criado para transformar dados dispersos em leitura clara para decisão.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-DASH-01",
     "pais": "Brasil"
   },
   {
-    "nome": "Fluxos Internos e Automação Comercial",
+    "nome": "Automação Comercial e Fluxos Internos",
     "preco": 3900,
     "preco_promocional": 2490,
-    "descricao": "Automação de processos, tarefas repetitivas e operações comerciais para ganho de eficiência.",
+    "descricao": "Mapeamento e automação de processos comerciais, tarefas repetitivas, notificações, cadências, handoffs e rotinas internas. Indicado para empresas que já têm demanda, mas perdem velocidade por operação manual e desorganizada.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "FLW-AUTO-01",
     "pais": "Brasil"
   },
   {
-    "nome": "Tráfego Pago Google Ads",
+    "nome": "Operação Google Ads",
     "preco": 1997,
     "preco_promocional": 1497,
-    "descricao": "Planejamento, implementação e gestão de campanhas Google Ads focadas em geração de leads e vendas.",
+    "descricao": "Planejamento, implementação e gestão de campanhas Google Ads com foco em aquisição qualificada. A operação pode ser conectada a UTMs, eventos, landing pages, CRM, dashboards e camada de sinal para melhorar leitura e decisão.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "FLW-GADS-01",
     "pais": "Brasil"
   },
   {
-    "nome": "Tráfego Pago Meta Ads",
+    "nome": "Operação Meta Ads",
     "preco": 1997,
     "preco_promocional": 1497,
-    "descricao": "Gestão de campanhas Facebook e Instagram com foco em captação de oportunidades comerciais.",
+    "descricao": "Gestão de campanhas no Facebook e Instagram com foco em geração de oportunidades comerciais. Pode operar conectada a Pixel, CAPI, eventos, webapp, CRM e Agent SDR para fechar o ciclo entre anúncio, intenção e venda.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "FLW-MADS-01",
     "pais": "Brasil"
   },
   {
-    "nome": "NEØ:one",
+    "nome": "NEØ:one Demo",
     "preco": 97,
     "preco_promocional": 0,
-    "descricao": "Demonstração do agente comercial da NEØ FlowOFF em funcionamento para conhecer o potencial da plataforma.",
+    "descricao": "Demonstração prática do agente comercial da NEØ FlowOFF em funcionamento. Uma porta de entrada para entender como IA, atendimento, qualificação, dados e automação podem operar dentro de um ecossistema comercial real.",
     "link": "https://chat.neoflowoff.agency",
     "codigo_item": "NEØ-ONE-01",
     "pais": "Brasil"
