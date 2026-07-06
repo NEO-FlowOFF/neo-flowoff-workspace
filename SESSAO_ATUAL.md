@@ -1,13 +1,13 @@
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
 
-# QUICKOFF SESSÃO: NEO-FlowOFF
+# QUICKOFF SESSÃO: NEO-FlowOFF (neoflowoff-chat-ui)
 
 ```text
 ========================================
    NEO-FLOWOFF · ESTADO DA SESSÃO
 ========================================
-Data: 2026-06-14
-Workspace: Control Plane (neo-flowoff-workspace)
+Data: 2026-07-06
+Workspace: neoflowoff-chat-ui
 ========================================
 ```
 
@@ -17,106 +17,87 @@ Workspace: Control Plane (neo-flowoff-workspace)
 
 ## 1. Git State
 
+```text
 | Item | Estado |
 |---|---|
 | **Branch** | `main` |
 | **Upstream** | `origin/main` |
-| **Ahead/Behind** | **Ahead by 3** / Behind 0 (3 commits locais não pushados) |
-| **Modificações** | `neo-sdr-adapter` (M) e `neo-flowoff-agency` (m) |
+| **Ahead/Behind** | Ahead by 1 |
+| **Modificações** | `SESSAO_ATUAL.md`, `neo-sdr-adapter` (untracked), `neoflowoff-chat-ui` (new commits), `pnpm-lock.yaml`, `servicos_neoflowoff_agency.json` |
 | **Staged** | Nenhum |
-| **Untracked** | Nenhum reportado no root |
-| **Merge/rebase** | Nenhum |
-
-**⚠️ Atenção:** O branch está com 3 commits na frente do remote. Além disso, há modificações listadas em `neo-sdr-adapter` e `neo-flowoff-agency` — como são repositórios filhos/gitlinks, isso indica que os ponteiros locais de commit mudaram ou há trabalho sujo dentro deles.
+| **Untracked** | Nenhum |
+```
 
 ---
 
-## 2. O Que Encontrei
+## 2. What I found
 
-O diretório `/Users/nettomello/neomello/NEO-FlowOFF` é o **workspace root de coordenação** (control plane) da organização `NEO-FlowOFF`.
-
-Ele **não é um monorepo de produto**. Ele hospeda 8 repositórios soberanos como subdiretórios (ex: `ceo-escalavel-miniapp`, `neo-flw-landing`, `neo-flowoff-pwa`), além de diretórios de coordenação (`manifests/`, `docs/`, `scripts/`, `roadmaps/`).
-A stack de scripts de coordenação usa Python 3.
-
----
-
-## 3. Estado da Documentação
-
-| Arquivo | Status |
-|---|---|
-| **README.md** | ✅ Existe e está perfeitamente coerente com o paradigma de Control Plane. |
-| **AGENTS.md** | ✅ Existe, é rigoroso e define claramente as fronteiras (Root = coordenação, Filhos = produto). |
-| **MARKDOWN_STYLE_GUIDE.md** | ✅ Existe (`markdown_style_guide.md` em minúsculas). |
-| **docs/workspace/** | ✅ Existe e contém a topologia e modelo (`WORKSPACE_TOPOLOGY.md`, etc). |
-| **SVG.md / CODEX.md / CLAUDE.md** | ❌ Não existem na raiz (não obrigatórios pelo README atual). |
+* **Projeto e Arquitetura:** O projeto `neoflowoff-chat-ui` é um Progressive Web App (PWA) de alta performance projetado para atuar como a interface de chat e primeiro ponto de contato conversacional do agente **NEØ:One** (agência NEO FlowOFF).
+* **Stack Tecnológica:**
+  * **Core / Framework:** [Astro v7.0.6](https://astro.build) rodando com adaptador Node.js (`@astrojs/node`) no runtime `>=22.12.0`, gerenciado via `pnpm@11.9.0`.
+  * **Linguagem:** TypeScript (`^5.0.0`) rigorosamente tipado.
+  * **Persistência de Dados & Ledger:** PostgreSQL (via pacote `pg` com pool de conexões e event handlers de erro) para armazenamento autoritativo de leads/CRM, e Redis (`ioredis`) para histórico conversacional com janela deslizante (sliding window) e memória de sessão.
+  * **Integrações Externas:** Meta Conversions API (CAPI) (`src/lib/meta-capi.ts`), serviço de e-mail transacional/notificação Resend (`src/lib/emails.ts`) e integração com API LLM para completação de texto.
+  * **Infraestrutura e Deploy:** Configuração para deploy no Railway (`railway.toml`, `Makefile`) e scripts de verificação de ambiente (`check_env.js`).
+* **Arquitetura de Prompt e Atendimento:** O servidor orquestra os pedidos combinando o prompt base (`src/lib/system-prompt.md`), o contexto do ecossistema, os dados de atribuição de campanha (UTMs) e o estado operacional em tempo real do banco de dados antes de enviar as interações à LLM.
 
 ---
 
-## 4. O Que Entendi
+## 3. Documentation state
 
-Este workspace funciona como um "mapa" e "orquestrador estrutural" para a organização NEO-FlowOFF. O objetivo principal deste repositório raiz é gerenciar manifests (`workspace.json`, `repos.json`), topologias, integrações e scripts de diagnóstico transversais.
+* **`README.md`:** Presente na raiz. Apresenta o diagrama arquitetural em formato gráfico (`graph TD`), política de segurança (Headers HSTS, CSP, Cloudflare AI Labyrinth, Robots.txt) e SEO. O arquivo está coerente com a stack real do projeto, com uma única observação menor: o cabeçalho do README indica `Version: v1.2.0`, enquanto o `package.json` já está na versão `1.2.1`.
+* **`docs/SETUP.md`:** Presente no diretório `docs/`. O `README.md` direciona corretamente para este arquivo para orientações de setup, variáveis de ambiente e comandos de desenvolvimento.
+* **`docs/SVG.md`:** Presente em `docs/`. Define o padrão e o uso de diagramas visuais e SVGs na documentação e no repositório.
+* **`docs/MARKDOWN_STYLE_GUIDE.md`:** Presente em `docs/`. Define a padronização obrigatória e sintaxe para todas as documentações Markdown do repositório.
+* **`CODEX.md` / `AGENTS.md` / `CLAUDE.md`:** Presentes no repositório (tanto na raiz quanto na pasta `agents/`), definindo a hierarquia da verdade, regras do NEØ Protocol (FlowOFF) e procedimentos de debugging e segurança.
 
-Se a tarefa for mexer em regras de negócio ou frontend, devo descer para o repositório filho correto. Se for mapear uma nova arquitetura, atualizar padrões, ou criar scripts cross-repo, trabalho aqui na raiz.
+---
+
+## 4. O Que Entendi (Core Objective & Backend Authority)
+
+* **Objetivo do Sistema:** Operar a interface conversacional autônoma do agente **NEØ:One**, entregando uma experiência consultiva humanizada que qualifica leads e executa o handoff comercial sem burocracia.
+* **Princípio Core "Backend Authority beats interface assumptions":**
+  * As modificações implementadas em `src/lib/leads.ts` e `src/pages/api/chat.ts` consolidam essa diretriz de segurança e conversão.
+  * O servidor de chat (`chat.ts`) consulta o banco de dados operacional (PostgreSQL) a cada turno antes de enviar o histórico à LLM. 
+  * Se o banco reportar que o lead já possui Nome, Telefone, Intenção Comercial (POI) ou se demonstra urgência, a IA é programaticamente proibida de repetir perguntas investigativas ("chatbot burro"), partindo diretamente para a coleta do dado restante ou liberação do link de handoff.
+* **Protocolo de Captura Fluida de Contatos:**
+  * Sob pressa ou detecção de intenção comercial (POI), o comercial exige apenas **Nome + WhatsApp** para iniciar o atendimento humano.
+  * Caso falte algum dado, o LLM solicita o contato faltante de maneira hiper-humanizada em uma única frase e sem usar formatos rígidos de formulários (bullets ou listas). O e-mail é tratado estritamente como bônus (opcional) para o remarketing da Meta.
 
 ---
 
 ## 5. Current State
 
-- **Já implementado:** Todo o sistema de manifests e topologia está funcional. O script de topologia documenta 8 repos e 13 integrações ativas.
-- **Drifts mapeados (Broken/Unclear):** O `WORKSPACE_TOPOLOGY.md` reporta pendências estruturais ("gitlinks-without-gitmodules" em `neo-flowoff-agency` e `neoflowoff-chat-ui`) e inconsistências de documentação ("prompts removidos ainda citados" em `neoflow-content-machine`).
+* **Implementado & Funcional:** PWA Astro configurado, controle de histórico de mensagens via Redis com janela deslizante de 10 interações, persistência de leads no PostgreSQL com proteção contra quedas de conexão, rastreamento via Meta CAPI e notificações de handoff pelo Resend.
+* **Parcialmente Implementado / Em Validação (Local):** A injeção em tempo real de `LeadOperationalState` no prompt de sistema da rota `POST /api/chat` foi escrita localmente nos arquivos alterados, mas ainda não foi comitada nem submetida aos testes e lints de validação final.
+* **Outdated (Desatualizado):** Pequena divergência textual na string de versão no `README.md` (`v1.2.0` vs `v1.2.1` no `package.json`).
+* **Broken ou Dead Code (Quebrado/Morto):** Nenhum código quebrado ou inativo identificado na inspeção preliminar do fluxo principal.
 
 ---
 
 ## 6. Regras e Constraints Relevantes (AGENTS.md & README.md)
 
-1. **Root coordena, filhos executam.** Nenhuma mudança de código de produto deve ocorrer na raiz.
-2. **Sem vazamento de código.** Nunca mover código de um repo filho para a raiz do workspace.
-3. **Scripts root = Python 3.** Não usar `npm` ou `node` para ferramentas de coordenação do workspace.
-4. **Git Routing:** Se o trabalho envolver um repo filho, devo entrar na pasta dele para operar.
+1. **Hierarchy of Truth:** *Runtime beats documentation. State beats narrative. Backend authority beats interface assumptions.* O comportamento e as respostas do chat devem derivar estritamente dos estados confirmados no banco de dados e ledger.
+2. **NEØ Protocol (Zero-Invention & Fluid Capture):** É terminantemente proibido inventar dados, expor seletores técnicos, usar listas burocráticas numeradas no chat ("1. Nome: 2. Telefone:") ou criar barreiras quando o cliente demonstra pressa/urgência ou intenção comercial declarada (POI detectado).
+3. **Current Documentation Rule:** Para qualquer alteração em bibliotecas (Astro, Prisma/pg, Tailwind, Resend, Vercel/Railway), deve-se validar a sintaxe nas documentações oficiais atualizadas antes da edição.
+4. **Segurança e Tratamento de Erros:** Nunca expor credenciais, senhas, chaves de API ou variáveis do `.env` no front-end ou em logs de chat. Proibido usar blocos `catch` silenciosos sem log estruturado e fallback seguro.
+5. **Estilo de Modificação e Documentação:** Modificações devem ser cirúrgicas, pequenas e reversíveis. Todo arquivo Markdown editado ou criado deve seguir o `MARKDOWN_STYLE_GUIDE.md` e o `SVG.md`.
 
 ---
 
 ## 7. Riscos e Pontos de Falha
 
-| Risco                                   | Severidade | Notas |
-|---                                      | ---|---|
-| Commits root não pushados               | 🟡 Médio | `main` tem 3 commits na frente. Pode causar descompasso se houver colaboração externa. |
-| Submódulos sujos / desatualizados       | 🟡 Médio | `neo-sdr-adapter` e `neo-flowoff-agency` mostram modificações. Fazer commit na raiz sem pushar/sanitizar os filhos pode quebrar referências no remote. |
-| Gitlinks vs Gitmodules                  | 🟢 Baixo | A topologia aponta que faltam `.gitmodules` formais para alguns repositórios (estão apenas como pastas ignoradas ou gitlinks frouxos). |
+1. **Latência de Banco no Request do Chat (`POST /api/chat`):** A função `getLeadBySessionId(sessionId)` faz uma query síncrona no pool do PostgreSQL em todo request em que houver um `sessionId`. Embora esteja protegida por um `try/catch` (evitando erro 500 no chat caso o banco caia ou demore), uma degradação na performance do banco pode impactar o tempo total de resposta (TTFB) percebido pelo usuário.
+2. **Sincronia entre Sessões (Redis vs PostgreSQL):** Em cenários de alta concorrência ou falha temporária de rede, se o upsert do lead no PostgreSQL não tiver concluído quando a próxima mensagem chegar, o estado lido por `getLeadBySessionId` pode estar momentaneamente desatualizado, exigindo que o prompt lide com fluidez sem contradições.
+3. **Limites de Provedores Externos (Resend & Meta CAPI):** Qualquer alteração no fluxo de qualificação e handoff deve garantir que falhas externas (ex: erro 422 na API do Resend) não interrompam a experiência conversacional no cliente.
+4. **Logs e PII (Dados Pessoais):** Deve-se garantir que mensagens de erro ou logs de depuração não imprimam dados pessoais sensíveis de clientes (e-mails, telefones completos) em locais não seguros.
 
 ---
 
-## 8. Assumptions
+## 8. Plano de Validação e Handoff
 
-- Assumo que os 3 commits locais em `main` são seus e estão prontos para push, ou você está ciente deles.
-- Assumo que as alterações marcadas em `neo-sdr-adapter` indicam trabalho ativo dentro daquele repositório.
-
----
-
-## 9. Perguntas antes da Execução
-
-1. **Qual é o alvo da sessão de hoje?** Estamos fazendo manutenção no Control Plane (ex: corrigindo os gitlinks/drifts) ou vamos atuar dentro de algum dos repositórios filhos (ex: `neo-flowoff-pwa` ou `neo-flw-landing`)?
-
----
-
-## 10. Plano Proposto
-
-**Metas Imediatas Definidas:**
-1. **Refatoração Frontend:** Alterar completamente o frontend de `https://lp.neoflowoff.agency/` (repositório soberano `neo-flw-landing`).
-2. **Correção de Rota/Deploy:** Corrigir `https://agente.neoflowoff.agency/` que atualmente não leva para lugar nenhum (repositório soberano `ceo-escalavel-miniapp`).
-
-**Possíveis caminhos de coordenação:**
-- Consertar os gitlinks apontados no Drift Backlog, atualizar topologia e fazer o push dos 3 commits retidos na raiz.
-
----
-
-## 11. Arquivos que devem ser tocados
-
-- Repositório `neo-flw-landing` (arquivos de interface / UI).
-- Repositório `ceo-escalavel-miniapp` (roteamento, config de deploy ou código do mini-app).
-
----
-
-## 12. Waiting for approval
-
-I will not change files until you approve the plan.
+1. **Correção de Divergência de Versão**: Atualizar o `README.md` do chat para constar a versão `v1.2.1` (sincronizado com o `package.json`).
+2. **Execução de Lints e Builds**:
+   - Rodar validação estática no subprojeto `neoflowoff-chat-ui` e certificar integridade.
+3. **Commit e Handoff no Git**:
+   - Subir os ponteiros atualizados no repositório pai após a validação.
