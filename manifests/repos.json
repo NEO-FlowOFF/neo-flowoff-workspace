@@ -562,6 +562,48 @@
       "evidence": [
         "./neoflw-token/package.json"
       ]
+    },
+    {
+      "name": "neo-landing-sdr",
+      "localPath": "./neo-landing-sdr",
+      "remote": "git@github.com:NEO-FlowOFF/neo-landing-sdr.git",
+      "role": "Landing page em Astro para a oferta comercial SDR IA Plug & Play da neoflowoff.agency",
+      "runtime": {
+        "category": "static-site",
+        "framework": "Astro 5 + Cloudflare",
+        "node": "18+"
+      },
+      "localDevelopment": {
+        "primaryCommand": "pnpm dev",
+        "ports": [],
+        "notes": [
+          "Todos os CTAs comerciais direcionam para https://chat.neoflowoff.agency."
+        ]
+      },
+      "deployment": {
+        "primaryPlatform": "cloudflare-pages-inferred",
+        "configFiles": [
+          "./neo-landing-sdr/astro.config.mjs"
+        ]
+      },
+      "publicSurface": {
+        "domains": [],
+        "webhookEndpoints": [],
+        "serviceApis": []
+      },
+      "dependencies": {
+        "internal": [
+          "neoflowoff-chat-ui"
+        ],
+        "external": [
+          "Cloudflare"
+        ]
+      },
+      "evidence": [
+        "./neo-landing-sdr/package.json",
+        "./neo-landing-sdr/README.md",
+        "./neo-landing-sdr/astro.config.mjs"
+      ]
     }
   ]
 }
