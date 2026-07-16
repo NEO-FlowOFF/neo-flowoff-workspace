@@ -36,15 +36,6 @@ Priorizar `high` → `moderate` → `low`. Onde houver breaking change de major 
 - [moderate] `postcss` (`<8.5.10` → **`>=8.5.10`**) — XSS via `</style>` não escapado.
   Costuma vir transitivo do next; pode resolver junto após o upgrade do next.
 
-### neoflw-token  (7 vulns — tooling Hardhat/blockchain, dev-only mas corrigir)
-
-- [high] `serialize-javascript` (`<=7.0.2` → **`>=7.0.5`**) — RCE via `RegExp.flags` + CPU DoS.
-- [high] `tmp` (`<0.2.6` → **`>=0.2.6`**) — path traversal via prefix/postfix.
-- [moderate] `bn.js` (`<4.12.3` → **`>=4.12.3`**) — loop infinito.
-- [low] `cookie` (`<0.7.0` → **`>=0.7.0`**).
-- Cadeia via `hardhat`/`solc`/`@nomicfoundation/hardhat-*`. Se forem transitivas presas a
-  versões antigas do hardhat, considerar bump do hardhat ou `overrides` no `pnpm-workspace.yaml`
-  (seguir o padrão de overrides já existente).
 
 ### neo-flw-landing  (4 vulns — Vercel CLI)
 
