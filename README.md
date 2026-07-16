@@ -1,8 +1,9 @@
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
+# NEO-FlowOFF
+ - Coordination root for the `NEO-FlowOFF` organization
 
-> Coordination root for the `NEO-FlowOFF` organization.
-> This workspace versions control plane artifacts,
-> not product source code.
+This workspace versions control plane artifacts,
+not product source code.
 
 ```text
 ========================================
