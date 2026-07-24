@@ -128,7 +128,7 @@
       "name": "neo-flw-landing",
       "localPath": "./neo-flw-landing",
       "remote": "https://github.com/NEO-FlowOFF/neo-flw-landing.git",
-      "role": "landing principal com proxy de pagamento, webhooks e tracking server-side",
+      "role": "vitrine de produtos, catálogo comercial e links de checkout usados pela operação de commerce da neoflowoff.agency, com proxy de pagamento, webhooks e tracking server-side",
       "runtime": {
         "category": "static-site-plus-serverless",
         "framework": "Static HTML/CSS + Vercel Functions",
@@ -153,8 +153,6 @@
       },
       "publicSurface": {
         "domains": [
-          "https://neoflowoff.agency",
-          "https://www.neoflowoff.agency",
           "https://lp.neoflowoff.agency"
         ],
         "apiEndpoints": [
@@ -503,32 +501,62 @@
       "name": "neoflowoff-chat-ui",
       "localPath": "./neoflowoff-chat-ui",
       "remote": "https://github.com/NEO-FlowOFF/neoflowoff-chat-ui.git",
-      "role": "TODO: describe role",
+      "role": "interface oficial NEØ:one do Neo Growth System para atendimento, qualificação, persistência de leads, mensuração e handoff comercial",
       "runtime": {
-        "category": "unknown",
-        "framework": "unknown",
-        "node": "18+"
+        "category": "ssr-web-app",
+        "framework": "Astro 7 + Node Standalone SSR + Vanilla CSS",
+        "node": ">=22.12.0"
       },
       "localDevelopment": {
         "primaryCommand": "pnpm dev",
-        "ports": [],
-        "notes": []
+        "ports": [
+          {
+            "purpose": "dev-server",
+            "value": 4321,
+            "source": "Astro default"
+          }
+        ],
+        "notes": [
+          "Usar a versão de pnpm fixada no package.json do child repo."
+        ]
       },
       "deployment": {
-        "primaryPlatform": "unknown",
-        "configFiles": []
+        "primaryPlatform": "railway",
+        "configFiles": [
+          "./neoflowoff-chat-ui/astro.config.mjs",
+          "./neoflowoff-chat-ui/package.json"
+        ]
       },
       "publicSurface": {
-        "domains": [],
+        "domains": [
+          "https://chat.neoflowoff.agency"
+        ],
+        "apiEndpoints": [
+          "/api/chat",
+          "/api/history"
+        ],
         "webhookEndpoints": [],
         "serviceApis": []
       },
       "dependencies": {
-        "internal": [],
-        "external": []
+        "internal": [
+          "neo-landing-sdr"
+        ],
+        "external": [
+          "ASI1 AI",
+          "Postgres HA via Railway PgBouncer",
+          "Redis Cloud",
+          "Resend API",
+          "Meta Pixel",
+          "Meta CAPI",
+          "GA4"
+        ]
       },
       "evidence": [
-        "./neoflowoff-chat-ui/package.json"
+        "./neoflowoff-chat-ui/package.json",
+        "./neoflowoff-chat-ui/astro.config.mjs",
+        "./neoflowoff-chat-ui/src/pages/api/chat.ts",
+        "./neoflowoff-chat-ui/src/lib/CONTEXT.json"
       ]
     },
     {
@@ -555,7 +583,9 @@
         ]
       },
       "publicSurface": {
-        "domains": [],
+        "domains": [
+          "https://sdr.neoflowoff.agency"
+        ],
         "webhookEndpoints": [],
         "serviceApis": []
       },
@@ -571,6 +601,43 @@
         "./neo-landing-sdr/package.json",
         "./neo-landing-sdr/README.md",
         "./neo-landing-sdr/astro.config.mjs"
+      ]
+    },
+    {
+      "name": "neo-oficial-page",
+      "localPath": "./neo-oficial-page",
+      "remote": "https://github.com/NEO-FlowOFF/neo-oficial-page.git",
+      "role": "Landing page oficial da NEO-FlowOFF",
+      "runtime": {
+        "category": "webapp-frontend",
+        "framework": "React 18 + Vite + TailwindCSS",
+        "node": "18+"
+      },
+      "localDevelopment": {
+        "primaryCommand": "pnpm dev",
+        "ports": [],
+        "notes": []
+      },
+      "deployment": {
+        "primaryPlatform": "vercel",
+        "configFiles": []
+      },
+      "publicSurface": {
+        "domains": [
+          "https://neoflowoff.agency"
+        ],
+        "webhookEndpoints": [],
+        "serviceApis": []
+      },
+      "dependencies": {
+        "internal": [],
+        "external": [
+          "@base44/sdk"
+        ]
+      },
+      "evidence": [
+        "./neo-oficial-page/package.json",
+        "./neo-oficial-page/README.md"
       ]
     }
   ]
