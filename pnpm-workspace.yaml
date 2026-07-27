@@ -8,6 +8,7 @@ packages:
   - "neo-growth-sdr-landing"
   - "neo-flw-landing"
   - "neo-landing-open"
+  - "neo-oficial-page"
   - "neo-shared"
   - "neoflow-content-machine"
   - "neoflowoff-chat-ui"
@@ -37,6 +38,11 @@ overrides:
   minimatch: ">=10.2.3"
   ws: ">=8.21.0"
   esbuild: ">=0.28.1"
+  sharp: ">=0.35.0"
+
+auditConfig:
+  ignoreGhsas:
+    - GHSA-f88m-g3jw-g9cj
 
 allowBuilds:
   "@reown/appkit": true
@@ -55,12 +61,13 @@ allowBuilds:
   next: true
   edr-win32-x64-msvc: true
   workerd: true
+  core-js: true
 
 minimumReleaseAgeExclude:
   - "@neo-flowoff/shared@1.0.0"
   - '@astrojs/cloudflare@14.1.3'
   - '@astrojs/markdown-satteri@0.3.4'
-  - astro@7.0.9
+  - astro@7.0.9 || 7.1.0
   - '@vercel/backends@0.8.24'
   - '@vercel/build-utils@13.33.1'
   - '@vercel/cervel@0.1.32'
@@ -75,6 +82,7 @@ minimumReleaseAgeExclude:
   - '@vercel/node@5.8.25'
   - '@vercel/static-build@2.11.7'
   - vercel@56.2.1
+  - lucide@1.26.0
 
 peerDependencyRules:
   allowedVersions:
@@ -89,6 +97,9 @@ peerDependencyRules:
     'chai-as-promised>chai': '6.2.2'
     ws>utf-8-validate: '6.0.6'
     '@farcaster/quick-auth>typescript': '5.9.3'
+    # Fix: @astrojs/language-server@2.16.10 quebra com typescript@7.x.
+    # neoflw-token-page puxa TS 7.x que vira peer do language-server no workspace.
+    '@astrojs/language-server>typescript': '5'
     '@farcaster/miniapp-wagmi-connector>@farcaster/miniapp-sdk': '0.1.10'
     use-sync-external-store>react: '19.2.7'
     tailwindcss-animate>tailwindcss: '3.4.19'
