@@ -118,6 +118,10 @@
         ]
       },
       "evidence": [
+        "./flow-links-bio/README.md",
+        "./flow-links-bio/SETUP.md",
+        "./flow-links-bio/CONTEXT.md",
+        "./flow-links-bio/SOVEREIGN_DEV.md",
         "./flow-links-bio/package.json",
         "./flow-links-bio/src/layouts/Base.astro",
         "./flow-links-bio/src/pages/hub.astro",
@@ -192,6 +196,12 @@
         ]
       },
       "evidence": [
+        "./neo-flw-landing/README.md",
+        "./neo-flw-landing/CODEX.md",
+        "./neo-flw-landing/CLAUDE.md",
+        "./neo-flw-landing/AGENTS.md",
+        "./neo-flw-landing/NEO_PROTOCOL.md",
+        "./neo-flw-landing/SETUP.md",
         "./neo-flw-landing/vercel.json",
         "./neo-flw-landing/.env.example",
         "./neo-flw-landing/api/charge.js",
@@ -553,10 +563,18 @@
         ]
       },
       "evidence": [
+        "./neoflowoff-chat-ui/README.md",
+        "./neoflowoff-chat-ui/CODEX.md",
+        "./neoflowoff-chat-ui/CLAUDE.md",
+        "./neoflowoff-chat-ui/SKILL.md",
+        "./neoflowoff-chat-ui/agents/MEMORY.md",
+        "./neoflowoff-chat-ui/agents/SOVEREIGN_DEV.md",
+        "./neoflowoff-chat-ui/src/lib/system-prompt.md",
+        "./neoflowoff-chat-ui/src/lib/CONTEXT.json",
+        "./neoflowoff-chat-ui/docs/SETUP.md",
         "./neoflowoff-chat-ui/package.json",
         "./neoflowoff-chat-ui/astro.config.mjs",
-        "./neoflowoff-chat-ui/src/pages/api/chat.ts",
-        "./neoflowoff-chat-ui/src/lib/CONTEXT.json"
+        "./neoflowoff-chat-ui/src/pages/api/chat.ts"
       ]
     },
     {
