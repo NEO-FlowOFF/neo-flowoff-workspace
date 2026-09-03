@@ -71,10 +71,14 @@ NEO-FlowOFF/
 ```text
 ceo-escalavel-miniapp
 flow-links-bio
-neo-flowoff-pwa
+neo-digitalfather
 neo-flw-landing
 neo-landing-open
+neo-landing-sdr
+neo-oficial-page
+neo-sdr-adapter
 neoflow-content-machine
+neoflowoff-chat-ui
 neoflw-token-page
 pro-ia
 ```
@@ -116,11 +120,6 @@ python3 scripts/workspace-doctor
 python3 scripts/generate-workspace-topology \
   > docs/workspace/WORKSPACE_TOPOLOGY.md
 ```
-
-**Token canônico:**
-
-- [manifests/tokens/base-neoflow.json](/Users/nettomello/neomello/NEO-FlowOFF/manifests/tokens/base-neoflow.json)
-- [NEOFLW_BASE_MAINNET.md](/Users/nettomello/neomello/neo-smart-factory/smart-core/deployments/NEOFLW_BASE_MAINNET.md)
 
 **Token canônico:**
 

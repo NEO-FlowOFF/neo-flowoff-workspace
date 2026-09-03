@@ -40,16 +40,16 @@ repo                    | deploy                         | local | public
 ------------------------|--------------------------------|-------|------------------------------
 ceo-escalavel-miniapp   | vercel                         | 4173  | agente.neoflowoff.agency
 flow-links-bio          | cloudflare-pages-inferred      | -     | flow-links-bio.pages.dev +1
-neo-flw-landing         | vercel                         | -     | neoflowoff.agency +2
+neo-flw-landing         | vercel                         | -     | lp.neoflowoff.agency
 neo-landing-open        | vercel-inferred                | -     | neo-landing-open.vercel.app
 neoflow-content-machine | fly-io                         | 3001  | -
 neoflw-token-page       | vercel                         | -     | neoflowoff.eth.limo +2
 pro-ia                  | vercel / netlify-docs-still-pr | 3001  | pro.neoflowoff.agency +2
 neo-digitalfather       | unknown                        | -     | -
-neo-flowoff-agency      | unknown                        | -     | -
 neo-sdr-adapter         | unknown                        | -     | -
-neoflowoff-chat-ui      | unknown                        | -     | -
-neoflw-token            | unknown                        | -     | -
+neoflowoff-chat-ui      | railway                        | 4321  | chat.neoflowoff.agency
+neo-landing-sdr         | cloudflare-pages-inferred      | -     | sdr.neoflowoff.agency
+neo-oficial-page        | vercel                         | -     | neoflowoff.agency
 ```
 
 ────────────────────────────────────────
@@ -59,16 +59,16 @@ neoflw-token            | unknown                        | -     | -
 ```text
 ceo-escalavel-miniapp | miniapp de aquisicao, referral, wallet utility e monetizacao Telegram
 flow-links-bio | hub publico de distribuicao e roteamento para propriedades do ecossistema
-neo-flw-landing | landing principal com proxy de pagamento, webhooks e tracking server-side
+neo-flw-landing | vitrine de produtos, catálogo comercial e links de checkout usados pela operação de commerce da neoflowoff.agency, com proxy de pagamento, webhooks e tracking server-side
 neo-landing-open | landing publica aberta com captura de leads e prova de stack
 neoflow-content-machine | engine de criacao, aprovacao, assets e distribuicao multicanal
 neoflw-token-page | microsite soberano do token com presenca ENS e links on-chain
 pro-ia | produto de monetizacao com checkout PIX, leads e area protegida
 neo-digitalfather | NEO DigitalFather - Frontend and Agent
-neo-flowoff-agency | TODO: describe role
 neo-sdr-adapter | TODO: describe role
-neoflowoff-chat-ui | TODO: describe role
-neoflw-token | Orquestração terminal para o protocolo NEOFLOW com Ape Framework
+neoflowoff-chat-ui | interface oficial NEØ:one do Neo Growth System para atendimento, qualificação, persistência de leads, mensuração e handoff comercial
+neo-landing-sdr | Landing page em Astro para a oferta comercial SDR IA Plug & Play da neoflowoff.agency
+neo-oficial-page | Landing page oficial da NEO-FlowOFF
 ```
 
 ────────────────────────────────────────
