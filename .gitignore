@@ -3,10 +3,12 @@
 # Workspace control plane artifacts
 .claude/
 .playwright-mcp/
+.vscode/
 
 # Sovereign product repositories
 ceo-escalavel-miniapp/
 flow-links-bio/
+neo-digitalfather/
 neo-flowoff-agency/
 neo-flowoff-pwa/
 neo-flw-landing/
