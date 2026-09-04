@@ -26,7 +26,7 @@ a partir dos manifests canonicos.
 workspace  | neo-flowoff-workspace
 org        | NEO-FlowOFF
 mode       | control-plane
-repos      | 12
+repos      | 11
 integracoes| 13
 guia-md    | ./MARKDOWN_STYLE_GUIDE.md
 ```
@@ -47,7 +47,6 @@ neoflw-token-page       | vercel                         | -     | neoflowoff.et
 pro-ia                  | vercel / netlify-docs-still-pr | 3001  | pro.neoflowoff.agency +2
 neo-digitalfather       | unknown                        | -     | -
 neo-sdr-adapter         | unknown                        | -     | -
-neoflowoff-chat-ui      | railway                        | 4321  | chat.neoflowoff.agency
 neo-landing-sdr         | cloudflare-pages-inferred      | -     | sdr.neoflowoff.agency
 neo-oficial-page        | vercel                         | -     | neoflowoff.agency
 ```
@@ -66,7 +65,6 @@ neoflw-token-page | microsite soberano do token com presenca ENS e links on-chai
 pro-ia | produto de monetizacao com checkout PIX, leads e area protegida
 neo-digitalfather | NEO DigitalFather - Frontend and Agent
 neo-sdr-adapter | TODO: describe role
-neoflowoff-chat-ui | interface oficial NEØ:one do Neo Growth System para atendimento, qualificação, persistência de leads, mensuração e handoff comercial
 neo-landing-sdr | Landing page em Astro para a oferta comercial SDR IA Plug & Play da neoflowoff.agency
 neo-oficial-page | Landing page oficial da NEO-FlowOFF
 ```

@@ -508,76 +508,6 @@
       ]
     },
     {
-      "name": "neoflowoff-chat-ui",
-      "localPath": "./neoflowoff-chat-ui",
-      "remote": "https://github.com/NEO-FlowOFF/neoflowoff-chat-ui.git",
-      "role": "interface oficial NEØ:one do Neo Growth System para atendimento, qualificação, persistência de leads, mensuração e handoff comercial",
-      "runtime": {
-        "category": "ssr-web-app",
-        "framework": "Astro 7 + Node Standalone SSR + Vanilla CSS",
-        "node": ">=22.12.0"
-      },
-      "localDevelopment": {
-        "primaryCommand": "pnpm dev",
-        "ports": [
-          {
-            "purpose": "dev-server",
-            "value": 4321,
-            "source": "Astro default"
-          }
-        ],
-        "notes": [
-          "Usar a versão de pnpm fixada no package.json do child repo."
-        ]
-      },
-      "deployment": {
-        "primaryPlatform": "railway",
-        "configFiles": [
-          "./neoflowoff-chat-ui/astro.config.mjs",
-          "./neoflowoff-chat-ui/package.json"
-        ]
-      },
-      "publicSurface": {
-        "domains": [
-          "https://chat.neoflowoff.agency"
-        ],
-        "apiEndpoints": [
-          "/api/chat",
-          "/api/history"
-        ],
-        "webhookEndpoints": [],
-        "serviceApis": []
-      },
-      "dependencies": {
-        "internal": [
-          "neo-landing-sdr"
-        ],
-        "external": [
-          "ASI1 AI",
-          "Postgres HA via Railway PgBouncer",
-          "Redis Cloud",
-          "Resend API",
-          "Meta Pixel",
-          "Meta CAPI",
-          "GA4"
-        ]
-      },
-      "evidence": [
-        "./neoflowoff-chat-ui/README.md",
-        "./neoflowoff-chat-ui/CODEX.md",
-        "./neoflowoff-chat-ui/CLAUDE.md",
-        "./neoflowoff-chat-ui/SKILL.md",
-        "./neoflowoff-chat-ui/agents/MEMORY.md",
-        "./neoflowoff-chat-ui/agents/SOVEREIGN_DEV.md",
-        "./neoflowoff-chat-ui/src/lib/system-prompt.md",
-        "./neoflowoff-chat-ui/src/lib/CONTEXT.json",
-        "./neoflowoff-chat-ui/docs/SETUP.md",
-        "./neoflowoff-chat-ui/package.json",
-        "./neoflowoff-chat-ui/astro.config.mjs",
-        "./neoflowoff-chat-ui/src/pages/api/chat.ts"
-      ]
-    },
-    {
       "name": "neo-landing-sdr",
       "localPath": "./neo-landing-sdr",
       "remote": "git@github.com:NEO-FlowOFF/neo-landing-sdr.git",
@@ -608,9 +538,7 @@
         "serviceApis": []
       },
       "dependencies": {
-        "internal": [
-          "neoflowoff-chat-ui"
-        ],
+        "internal": [],
         "external": [
           "Cloudflare"
         ]
